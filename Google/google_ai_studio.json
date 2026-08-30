@@ -2,7 +2,7 @@
   "schema_version": "1.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-08-29T22:59:23.930843",
+  "updated_at": "2026-08-30T13:52:00.419210",
   "total_models": 53,
   "tasks_summary": {
     "text-generation": 18,
@@ -19,10 +19,10 @@
   "tasks": {
     "text-generation": [
       {
-        "id": "gemini-2.5-flash",
-        "full_id": "models/gemini-2.5-flash",
-        "display_name": "Gemini 2.5 Flash",
-        "description": "Stable version of Gemini 2.5 Flash, our mid-size multimodal model that supports up to 1 million tokens, released in June of 2025.",
+        "id": "gemini-3.7-flash",
+        "full_id": "models/gemini-3.7-flash",
+        "display_name": "Gemini 3.7 Flash",
+        "description": "Gemini 3.7 Flash",
         "task": "text-generation",
         "is_multimodal": true,
         "input_modalities": [
@@ -44,387 +44,9 @@
           "createCachedContent",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-2.5-pro",
-        "full_id": "models/gemini-2.5-pro",
-        "display_name": "Gemini 2.5 Pro",
-        "description": "Stable release (June 17th, 2025) of Gemini 2.5 Pro",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemma-4-26b-a4b-it",
-        "full_id": "models/gemma-4-26b-a4b-it",
-        "display_name": "Gemma 4 26B A4B IT",
-        "description": "Gemma 4 26B A4B IT",
-        "task": "text-generation",
-        "is_multimodal": false,
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 262144,
-        "max_output_tokens": 32768,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemma-4-31b-it",
-        "full_id": "models/gemma-4-31b-it",
-        "display_name": "Gemma 4 31B IT",
-        "description": "Gemma 4 31B IT",
-        "task": "text-generation",
-        "is_multimodal": false,
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 262144,
-        "max_output_tokens": 32768,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-flash-latest",
-        "full_id": "models/gemini-flash-latest",
-        "display_name": "Gemini Flash Latest",
-        "description": "Latest release of Gemini Flash",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-flash-lite-latest",
-        "full_id": "models/gemini-flash-lite-latest",
-        "display_name": "Gemini Flash-Lite Latest",
-        "description": "Latest release of Gemini Flash-Lite",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-pro-latest",
-        "full_id": "models/gemini-pro-latest",
-        "display_name": "Gemini Pro Latest",
-        "description": "Latest release of Gemini Pro",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-2.5-flash-lite",
-        "full_id": "models/gemini-2.5-flash-lite",
-        "display_name": "Gemini 2.5 Flash-Lite",
-        "description": "Stable version of Gemini 2.5 Flash-Lite, released in July of 2025",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3-flash-preview",
-        "full_id": "models/gemini-3-flash-preview",
-        "display_name": "Gemini 3 Flash Preview",
-        "description": "Gemini 3 Flash Preview",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3.1-pro-preview",
-        "full_id": "models/gemini-3.1-pro-preview",
-        "display_name": "Gemini 3.1 Pro Preview",
-        "description": "Gemini 3.1 Pro Preview",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3.1-pro-preview-customtools",
-        "full_id": "models/gemini-3.1-pro-preview-customtools",
-        "display_name": "Gemini 3.1 Pro Preview Custom Tools",
-        "description": "Gemini 3.1 Pro Preview optimized for custom tool usage",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3.1-flash-lite-preview",
-        "full_id": "models/gemini-3.1-flash-lite-preview",
-        "display_name": "Gemini 3.1 Flash Lite Preview",
-        "description": "Gemini 3.1 Flash Lite Preview",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3.1-flash-lite",
-        "full_id": "models/gemini-3.1-flash-lite",
-        "display_name": "Gemini 3.1 Flash Lite",
-        "description": "Gemini 3.1 Flash Lite",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3.5-flash",
-        "full_id": "models/gemini-3.5-flash",
-        "display_name": "Gemini 3.5 Flash",
-        "description": "Gemini 3.5 Flash",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3.5-flash-lite",
-        "full_id": "models/gemini-3.5-flash-lite",
-        "display_name": "Gemini 3.5 Flash Lite",
-        "description": "Gemini 3.5 Flash Lite",
-        "task": "text-generation",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "audio",
-          "video",
-          "pdf"
-        ],
-        "output_modalities": [
-          "text"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 1,
+        "is_recommended": true
       },
       {
         "id": "gemini-3.6-flash",
@@ -452,13 +74,15 @@
           "createCachedContent",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 2,
+        "is_recommended": false
       },
       {
-        "id": "gemini-3.7-flash",
-        "full_id": "models/gemini-3.7-flash",
-        "display_name": "Gemini 3.7 Flash",
-        "description": "Gemini 3.7 Flash",
+        "id": "gemini-3.5-flash",
+        "full_id": "models/gemini-3.5-flash",
+        "display_name": "Gemini 3.5 Flash",
+        "description": "Gemini 3.5 Flash",
         "task": "text-generation",
         "is_multimodal": true,
         "input_modalities": [
@@ -480,7 +104,417 @@
           "createCachedContent",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 3,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3.5-flash-lite",
+        "full_id": "models/gemini-3.5-flash-lite",
+        "display_name": "Gemini 3.5 Flash Lite",
+        "description": "Gemini 3.5 Flash Lite",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 4,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3.1-pro-preview",
+        "full_id": "models/gemini-3.1-pro-preview",
+        "display_name": "Gemini 3.1 Pro Preview",
+        "description": "Gemini 3.1 Pro Preview",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 5,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3.1-pro-preview-customtools",
+        "full_id": "models/gemini-3.1-pro-preview-customtools",
+        "display_name": "Gemini 3.1 Pro Preview Custom Tools",
+        "description": "Gemini 3.1 Pro Preview optimized for custom tool usage",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 6,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3.1-flash-lite-preview",
+        "full_id": "models/gemini-3.1-flash-lite-preview",
+        "display_name": "Gemini 3.1 Flash Lite Preview",
+        "description": "Gemini 3.1 Flash Lite Preview",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 7,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3.1-flash-lite",
+        "full_id": "models/gemini-3.1-flash-lite",
+        "display_name": "Gemini 3.1 Flash Lite",
+        "description": "Gemini 3.1 Flash Lite",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 8,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3-flash-preview",
+        "full_id": "models/gemini-3-flash-preview",
+        "display_name": "Gemini 3 Flash Preview",
+        "description": "Gemini 3 Flash Preview",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 9,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-2.5-pro",
+        "full_id": "models/gemini-2.5-pro",
+        "display_name": "Gemini 2.5 Pro",
+        "description": "Stable release (June 17th, 2025) of Gemini 2.5 Pro",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 10,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-2.5-flash",
+        "full_id": "models/gemini-2.5-flash",
+        "display_name": "Gemini 2.5 Flash",
+        "description": "Stable version of Gemini 2.5 Flash, our mid-size multimodal model that supports up to 1 million tokens, released in June of 2025.",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 11,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-2.5-flash-lite",
+        "full_id": "models/gemini-2.5-flash-lite",
+        "display_name": "Gemini 2.5 Flash-Lite",
+        "description": "Stable version of Gemini 2.5 Flash-Lite, released in July of 2025",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 12,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-pro-latest",
+        "full_id": "models/gemini-pro-latest",
+        "display_name": "Gemini Pro Latest",
+        "description": "Latest release of Gemini Pro",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 13,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-flash-latest",
+        "full_id": "models/gemini-flash-latest",
+        "display_name": "Gemini Flash Latest",
+        "description": "Latest release of Gemini Flash",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 14,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-flash-lite-latest",
+        "full_id": "models/gemini-flash-lite-latest",
+        "display_name": "Gemini Flash-Lite Latest",
+        "description": "Latest release of Gemini Flash-Lite",
+        "task": "text-generation",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "audio",
+          "video",
+          "pdf"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 15,
+        "is_recommended": false
+      },
+      {
+        "id": "gemma-4-31b-it",
+        "full_id": "models/gemma-4-31b-it",
+        "display_name": "Gemma 4 31B IT",
+        "description": "Gemma 4 31B IT",
+        "task": "text-generation",
+        "is_multimodal": false,
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 262144,
+        "max_output_tokens": 32768,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1.0,
+        "rank": 16,
+        "is_recommended": false
+      },
+      {
+        "id": "gemma-4-26b-a4b-it",
+        "full_id": "models/gemma-4-26b-a4b-it",
+        "display_name": "Gemma 4 26B A4B IT",
+        "description": "Gemma 4 26B A4B IT",
+        "task": "text-generation",
+        "is_multimodal": false,
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 262144,
+        "max_output_tokens": 32768,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1.0,
+        "rank": 17,
+        "is_recommended": false
       },
       {
         "id": "aqa",
@@ -501,15 +535,17 @@
         "supported_actions": [
           "generateAnswer"
         ],
-        "temperature": 0.2
+        "temperature": 0.2,
+        "rank": 18,
+        "is_recommended": false
       }
     ],
     "text-to-speech": [
       {
-        "id": "gemini-2.5-flash-preview-tts",
-        "full_id": "models/gemini-2.5-flash-preview-tts",
-        "display_name": "Gemini 2.5 Flash Preview TTS",
-        "description": "Gemini 2.5 Flash Preview TTS",
+        "id": "gemini-3.1-flash-tts-preview",
+        "full_id": "models/gemini-3.1-flash-tts-preview",
+        "display_name": "Gemini 3.1 Flash TTS Preview",
+        "description": "Gemini 3.1 Flash TTS Preview",
         "task": "text-to-speech",
         "is_multimodal": true,
         "input_modalities": [
@@ -520,12 +556,15 @@
         ],
         "context_window": 8192,
         "max_output_tokens": 16384,
-        "supports_thinking": false,
+        "supports_thinking": true,
         "supported_actions": [
+          "generateContent",
           "countTokens",
-          "generateContent"
+          "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 1,
+        "is_recommended": true
       },
       {
         "id": "gemini-2.5-pro-preview-tts",
@@ -548,13 +587,15 @@
           "generateContent",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 2,
+        "is_recommended": false
       },
       {
-        "id": "gemini-3.1-flash-tts-preview",
-        "full_id": "models/gemini-3.1-flash-tts-preview",
-        "display_name": "Gemini 3.1 Flash TTS Preview",
-        "description": "Gemini 3.1 Flash TTS Preview",
+        "id": "gemini-2.5-flash-preview-tts",
+        "full_id": "models/gemini-2.5-flash-preview-tts",
+        "display_name": "Gemini 2.5 Flash Preview TTS",
+        "description": "Gemini 2.5 Flash Preview TTS",
         "task": "text-to-speech",
         "is_multimodal": true,
         "input_modalities": [
@@ -565,112 +606,17 @@
         ],
         "context_window": 8192,
         "max_output_tokens": 16384,
-        "supports_thinking": true,
+        "supports_thinking": false,
         "supported_actions": [
-          "generateContent",
           "countTokens",
-          "batchGenerateContent"
+          "generateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 3,
+        "is_recommended": false
       }
     ],
     "text-to-image": [
-      {
-        "id": "gemini-2.5-flash-image",
-        "full_id": "models/gemini-2.5-flash-image",
-        "display_name": "Nano Banana",
-        "description": "Gemini 2.5 Flash Preview Image",
-        "task": "text-to-image",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "image"
-        ],
-        "context_window": 32768,
-        "max_output_tokens": 32768,
-        "supports_thinking": false,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3-pro-image-preview",
-        "full_id": "models/gemini-3-pro-image-preview",
-        "display_name": "Nano Banana Pro",
-        "description": "Gemini 3 Pro Image Preview",
-        "task": "text-to-image",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "image"
-        ],
-        "context_window": 131072,
-        "max_output_tokens": 32768,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-3-pro-image",
-        "full_id": "models/gemini-3-pro-image",
-        "display_name": "Nano Banana Pro",
-        "description": "Gemini 3 Pro Image",
-        "task": "text-to-image",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "image"
-        ],
-        "context_window": 131072,
-        "max_output_tokens": 32768,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
-      {
-        "id": "nano-banana-pro-preview",
-        "full_id": "models/nano-banana-pro-preview",
-        "display_name": "Nano Banana Pro",
-        "description": "Gemini 3 Pro Image Preview",
-        "task": "text-to-image",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image"
-        ],
-        "output_modalities": [
-          "image"
-        ],
-        "context_window": 131072,
-        "max_output_tokens": 32768,
-        "supports_thinking": true,
-        "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "batchGenerateContent"
-        ],
-        "temperature": 1.0
-      },
       {
         "id": "gemini-3.1-flash-image-preview",
         "full_id": "models/gemini-3.1-flash-image-preview",
@@ -693,7 +639,9 @@
           "countTokens",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 1,
+        "is_recommended": true
       },
       {
         "id": "gemini-3.1-flash-image",
@@ -717,7 +665,9 @@
           "countTokens",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 2,
+        "is_recommended": false
       },
       {
         "id": "gemini-3.1-flash-lite-image",
@@ -741,36 +691,190 @@
           "countTokens",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 3,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3-pro-image-preview",
+        "full_id": "models/gemini-3-pro-image-preview",
+        "display_name": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image Preview",
+        "task": "text-to-image",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "image"
+        ],
+        "context_window": 131072,
+        "max_output_tokens": 32768,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 4,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3-pro-image",
+        "full_id": "models/gemini-3-pro-image",
+        "display_name": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image",
+        "task": "text-to-image",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "image"
+        ],
+        "context_window": 131072,
+        "max_output_tokens": 32768,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 5,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-2.5-flash-image",
+        "full_id": "models/gemini-2.5-flash-image",
+        "display_name": "Nano Banana",
+        "description": "Gemini 2.5 Flash Preview Image",
+        "task": "text-to-image",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "image"
+        ],
+        "context_window": 32768,
+        "max_output_tokens": 32768,
+        "supports_thinking": false,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 6,
+        "is_recommended": false
+      },
+      {
+        "id": "nano-banana-pro-preview",
+        "full_id": "models/nano-banana-pro-preview",
+        "display_name": "Nano Banana Pro",
+        "description": "Gemini 3 Pro Image Preview",
+        "task": "text-to-image",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "image"
+        ],
+        "context_window": 131072,
+        "max_output_tokens": 32768,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens",
+          "batchGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 7,
+        "is_recommended": false
       }
     ],
     "text-to-video": [
       {
-        "id": "gemini-omni-flash-preview",
-        "full_id": "models/gemini-omni-flash-preview",
-        "display_name": "Gemini Omni Flash Preview",
-        "description": "Gemini Omni Flash Preview",
+        "id": "veo-3.1-generate-preview",
+        "full_id": "models/veo-3.1-generate-preview",
+        "display_name": "Veo 3.1",
+        "description": "Veo 3.1",
         "task": "text-to-video",
         "is_multimodal": true,
         "input_modalities": [
           "text",
           "image",
-          "audio",
-          "video",
-          "pdf"
+          "video"
         ],
         "output_modalities": [
-          "video",
-          "text"
+          "video"
         ],
-        "context_window": 131072,
-        "max_output_tokens": 65536,
-        "supports_thinking": true,
+        "context_window": 480,
+        "max_output_tokens": 8192,
+        "supports_thinking": false,
         "supported_actions": [
-          "generateContent",
-          "countTokens"
+          "predictLongRunning"
         ],
-        "temperature": 1.0
+        "temperature": null,
+        "rank": 1,
+        "is_recommended": true
+      },
+      {
+        "id": "veo-3.1-fast-generate-preview",
+        "full_id": "models/veo-3.1-fast-generate-preview",
+        "display_name": "Veo 3.1 fast",
+        "description": "Veo 3.1 fast",
+        "task": "text-to-video",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "video"
+        ],
+        "context_window": 480,
+        "max_output_tokens": 8192,
+        "supports_thinking": false,
+        "supported_actions": [
+          "predictLongRunning"
+        ],
+        "temperature": null,
+        "rank": 2,
+        "is_recommended": false
+      },
+      {
+        "id": "veo-3.1-lite-generate-preview",
+        "full_id": "models/veo-3.1-lite-generate-preview",
+        "display_name": "Veo 3.1 lite",
+        "description": "Veo 3.1 lite",
+        "task": "text-to-video",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "output_modalities": [
+          "video"
+        ],
+        "context_window": 480,
+        "max_output_tokens": 8192,
+        "supports_thinking": false,
+        "supported_actions": [
+          "predictLongRunning"
+        ],
+        "temperature": null,
+        "rank": 3,
+        "is_recommended": false
       },
       {
         "id": "gemini-omni-1.1-flash",
@@ -797,76 +901,38 @@
           "generateContent",
           "countTokens"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 4,
+        "is_recommended": false
       },
       {
-        "id": "veo-3.1-generate-preview",
-        "full_id": "models/veo-3.1-generate-preview",
-        "display_name": "Veo 3.1",
-        "description": "Veo 3.1",
+        "id": "gemini-omni-flash-preview",
+        "full_id": "models/gemini-omni-flash-preview",
+        "display_name": "Gemini Omni Flash Preview",
+        "description": "Gemini Omni Flash Preview",
         "task": "text-to-video",
         "is_multimodal": true,
         "input_modalities": [
           "text",
           "image",
-          "video"
+          "audio",
+          "video",
+          "pdf"
         ],
         "output_modalities": [
-          "video"
+          "video",
+          "text"
         ],
-        "context_window": 480,
-        "max_output_tokens": 8192,
-        "supports_thinking": false,
+        "context_window": 131072,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
         "supported_actions": [
-          "predictLongRunning"
+          "generateContent",
+          "countTokens"
         ],
-        "temperature": null
-      },
-      {
-        "id": "veo-3.1-fast-generate-preview",
-        "full_id": "models/veo-3.1-fast-generate-preview",
-        "display_name": "Veo 3.1 fast",
-        "description": "Veo 3.1 fast",
-        "task": "text-to-video",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "video"
-        ],
-        "output_modalities": [
-          "video"
-        ],
-        "context_window": 480,
-        "max_output_tokens": 8192,
-        "supports_thinking": false,
-        "supported_actions": [
-          "predictLongRunning"
-        ],
-        "temperature": null
-      },
-      {
-        "id": "veo-3.1-lite-generate-preview",
-        "full_id": "models/veo-3.1-lite-generate-preview",
-        "display_name": "Veo 3.1 lite",
-        "description": "Veo 3.1 lite",
-        "task": "text-to-video",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "image",
-          "video"
-        ],
-        "output_modalities": [
-          "video"
-        ],
-        "context_window": 480,
-        "max_output_tokens": 8192,
-        "supports_thinking": false,
-        "supported_actions": [
-          "predictLongRunning"
-        ],
-        "temperature": null
+        "temperature": 1.0,
+        "rank": 5,
+        "is_recommended": false
       }
     ],
     "speech-to-text": [
@@ -890,33 +956,12 @@
           "generateContent",
           "countTokens"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 1,
+        "is_recommended": true
       }
     ],
     "text-to-music": [
-      {
-        "id": "lyria-3-clip-preview",
-        "full_id": "models/lyria-3-clip-preview",
-        "display_name": "Lyria 3 Clip Preview",
-        "description": "Lyria 3 30s model Preview",
-        "task": "text-to-music",
-        "is_multimodal": true,
-        "input_modalities": [
-          "text",
-          "audio"
-        ],
-        "output_modalities": [
-          "audio"
-        ],
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "supports_thinking": false,
-        "supported_actions": [
-          "generateContent",
-          "countTokens"
-        ],
-        "temperature": 1.0
-      },
       {
         "id": "lyria-3-pro-preview",
         "full_id": "models/lyria-3-pro-preview",
@@ -938,34 +983,62 @@
           "generateContent",
           "countTokens"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 1,
+        "is_recommended": true
+      },
+      {
+        "id": "lyria-3-clip-preview",
+        "full_id": "models/lyria-3-clip-preview",
+        "display_name": "Lyria 3 Clip Preview",
+        "description": "Lyria 3 30s model Preview",
+        "task": "text-to-music",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "audio"
+        ],
+        "output_modalities": [
+          "audio"
+        ],
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "supports_thinking": false,
+        "supported_actions": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1.0,
+        "rank": 2,
+        "is_recommended": false
       }
     ],
     "robotics": [
       {
-        "id": "gemini-robotics-er-1.6-preview",
-        "full_id": "models/gemini-robotics-er-1.6-preview",
-        "display_name": "Gemini Robotics-ER 1.6 Preview",
-        "description": "Gemini Robotics-ER 1.6 Preview",
+        "id": "gemini-robotics-er-2-streaming-preview",
+        "full_id": "models/gemini-robotics-er-2-streaming-preview",
+        "display_name": "Gemini Robotics-ER 2 Streaming Preview",
+        "description": "Gemini Robotics-ER 2 Streaming Preview",
         "task": "robotics",
         "is_multimodal": true,
         "input_modalities": [
+          "audio",
           "text",
-          "image"
+          "video"
         ],
         "output_modalities": [
+          "audio",
           "text"
         ],
         "context_window": 131072,
         "max_output_tokens": 65536,
-        "supports_thinking": true,
+        "supports_thinking": false,
         "supported_actions": [
-          "generateContent",
-          "countTokens",
-          "createCachedContent",
-          "batchGenerateContent"
+          "bidiGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 1,
+        "is_recommended": true
       },
       {
         "id": "gemini-robotics-er-2-preview",
@@ -990,40 +1063,16 @@
           "createCachedContent",
           "batchGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 2,
+        "is_recommended": false
       },
       {
-        "id": "gemini-robotics-er-2-streaming-preview",
-        "full_id": "models/gemini-robotics-er-2-streaming-preview",
-        "display_name": "Gemini Robotics-ER 2 Streaming Preview",
-        "description": "Gemini Robotics-ER 2 Streaming Preview",
+        "id": "gemini-robotics-er-1.6-preview",
+        "full_id": "models/gemini-robotics-er-1.6-preview",
+        "display_name": "Gemini Robotics-ER 1.6 Preview",
+        "description": "Gemini Robotics-ER 1.6 Preview",
         "task": "robotics",
-        "is_multimodal": true,
-        "input_modalities": [
-          "audio",
-          "text",
-          "video"
-        ],
-        "output_modalities": [
-          "audio",
-          "text"
-        ],
-        "context_window": 131072,
-        "max_output_tokens": 65536,
-        "supports_thinking": false,
-        "supported_actions": [
-          "bidiGenerateContent"
-        ],
-        "temperature": 1.0
-      }
-    ],
-    "deep-research": [
-      {
-        "id": "gemini-2.5-computer-use-preview-10-2025",
-        "full_id": "models/gemini-2.5-computer-use-preview-10-2025",
-        "display_name": "Gemini 2.5 Computer Use Preview 10-2025",
-        "description": "Gemini 2.5 Computer Use Preview 10-2025",
-        "task": "deep-research",
         "is_multimodal": true,
         "input_modalities": [
           "text",
@@ -1037,10 +1086,16 @@
         "supports_thinking": true,
         "supported_actions": [
           "generateContent",
-          "countTokens"
+          "countTokens",
+          "createCachedContent",
+          "batchGenerateContent"
         ],
-        "temperature": 1.0
-      },
+        "temperature": 1.0,
+        "rank": 3,
+        "is_recommended": false
+      }
+    ],
+    "deep-research": [
       {
         "id": "antigravity-preview-05-2026",
         "full_id": "models/antigravity-preview-05-2026",
@@ -1062,7 +1117,9 @@
           "generateContent",
           "countTokens"
         ],
-        "temperature": null
+        "temperature": null,
+        "rank": 1,
+        "is_recommended": true
       },
       {
         "id": "deep-research-max-preview-04-2026",
@@ -1085,7 +1142,9 @@
           "generateContent",
           "countTokens"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 2,
+        "is_recommended": false
       },
       {
         "id": "deep-research-preview-04-2026",
@@ -1108,7 +1167,9 @@
           "generateContent",
           "countTokens"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 3,
+        "is_recommended": false
       },
       {
         "id": "deep-research-pro-preview-12-2025",
@@ -1131,34 +1192,37 @@
           "generateContent",
           "countTokens"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 4,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-2.5-computer-use-preview-10-2025",
+        "full_id": "models/gemini-2.5-computer-use-preview-10-2025",
+        "display_name": "Gemini 2.5 Computer Use Preview 10-2025",
+        "description": "Gemini 2.5 Computer Use Preview 10-2025",
+        "task": "deep-research",
+        "is_multimodal": true,
+        "input_modalities": [
+          "text",
+          "image"
+        ],
+        "output_modalities": [
+          "text"
+        ],
+        "context_window": 131072,
+        "max_output_tokens": 65536,
+        "supports_thinking": true,
+        "supported_actions": [
+          "generateContent",
+          "countTokens"
+        ],
+        "temperature": 1.0,
+        "rank": 5,
+        "is_recommended": false
       }
     ],
     "embeddings": [
-      {
-        "id": "gemini-embedding-001",
-        "full_id": "models/gemini-embedding-001",
-        "display_name": "Gemini Embedding 001",
-        "description": "Obtain a distributed representation of a text.",
-        "task": "embeddings",
-        "is_multimodal": false,
-        "input_modalities": [
-          "text"
-        ],
-        "output_modalities": [
-          "embeddings"
-        ],
-        "context_window": 2048,
-        "max_output_tokens": 1,
-        "supports_thinking": false,
-        "supported_actions": [
-          "embedContent",
-          "countTextTokens",
-          "countTokens",
-          "asyncBatchEmbedContent"
-        ],
-        "temperature": null
-      },
       {
         "id": "gemini-embedding-2-preview",
         "full_id": "models/gemini-embedding-2-preview",
@@ -1184,7 +1248,9 @@
           "countTokens",
           "asyncBatchEmbedContent"
         ],
-        "temperature": null
+        "temperature": null,
+        "rank": 1,
+        "is_recommended": true
       },
       {
         "id": "gemini-embedding-2",
@@ -1211,7 +1277,35 @@
           "countTokens",
           "asyncBatchEmbedContent"
         ],
-        "temperature": null
+        "temperature": null,
+        "rank": 2,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-embedding-001",
+        "full_id": "models/gemini-embedding-001",
+        "display_name": "Gemini Embedding 001",
+        "description": "Obtain a distributed representation of a text.",
+        "task": "embeddings",
+        "is_multimodal": false,
+        "input_modalities": [
+          "text"
+        ],
+        "output_modalities": [
+          "embeddings"
+        ],
+        "context_window": 2048,
+        "max_output_tokens": 1,
+        "supports_thinking": false,
+        "supported_actions": [
+          "embedContent",
+          "countTextTokens",
+          "countTokens",
+          "asyncBatchEmbedContent"
+        ],
+        "temperature": null,
+        "rank": 3,
+        "is_recommended": false
       }
     ],
     "realtime-multimodal": [
@@ -1237,13 +1331,41 @@
         "supported_actions": [
           "bidiGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 1,
+        "is_recommended": true
       },
       {
-        "id": "gemini-2.5-flash-native-audio-latest",
-        "full_id": "models/gemini-2.5-flash-native-audio-latest",
-        "display_name": "Gemini 2.5 Flash Native Audio Latest",
-        "description": "Latest release of Gemini 2.5 Flash Native Audio",
+        "id": "gemini-3.5-live-translate-preview",
+        "full_id": "models/gemini-3.5-live-translate-preview",
+        "display_name": "Gemini 3.5 Live Translate Preview",
+        "description": "Gemini 3.5 Live Translate Preview",
+        "task": "realtime-multimodal",
+        "is_multimodal": true,
+        "input_modalities": [
+          "audio",
+          "text",
+          "video"
+        ],
+        "output_modalities": [
+          "audio",
+          "text"
+        ],
+        "context_window": 16384,
+        "max_output_tokens": 32768,
+        "supports_thinking": false,
+        "supported_actions": [
+          "bidiGenerateContent"
+        ],
+        "temperature": 1.0,
+        "rank": 2,
+        "is_recommended": false
+      },
+      {
+        "id": "gemini-3.1-flash-live-preview",
+        "full_id": "models/gemini-3.1-flash-live-preview",
+        "display_name": "Gemini 3.1 Flash Live Preview",
+        "description": "Gemini 3.1 Flash Live Preview",
         "task": "realtime-multimodal",
         "is_multimodal": true,
         "input_modalities": [
@@ -1256,38 +1378,14 @@
           "text"
         ],
         "context_window": 131072,
-        "max_output_tokens": 8192,
-        "supports_thinking": true,
+        "max_output_tokens": 65536,
+        "supports_thinking": false,
         "supported_actions": [
-          "countTokens",
           "bidiGenerateContent"
         ],
-        "temperature": 1.0
-      },
-      {
-        "id": "gemini-2.5-flash-native-audio-preview-09-2025",
-        "full_id": "models/gemini-2.5-flash-native-audio-preview-09-2025",
-        "display_name": "Gemini 2.5 Flash Native Audio Preview 09-2025",
-        "description": "Gemini 2.5 Flash Native Audio Preview 09-2025",
-        "task": "realtime-multimodal",
-        "is_multimodal": true,
-        "input_modalities": [
-          "audio",
-          "text",
-          "video"
-        ],
-        "output_modalities": [
-          "audio",
-          "text"
-        ],
-        "context_window": 131072,
-        "max_output_tokens": 8192,
-        "supports_thinking": true,
-        "supported_actions": [
-          "countTokens",
-          "bidiGenerateContent"
-        ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 3,
+        "is_recommended": false
       },
       {
         "id": "gemini-2.5-flash-native-audio-preview-12-2025",
@@ -1312,13 +1410,15 @@
           "countTokens",
           "bidiGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 4,
+        "is_recommended": false
       },
       {
-        "id": "gemini-3.1-flash-live-preview",
-        "full_id": "models/gemini-3.1-flash-live-preview",
-        "display_name": "Gemini 3.1 Flash Live Preview",
-        "description": "Gemini 3.1 Flash Live Preview",
+        "id": "gemini-2.5-flash-native-audio-preview-09-2025",
+        "full_id": "models/gemini-2.5-flash-native-audio-preview-09-2025",
+        "display_name": "Gemini 2.5 Flash Native Audio Preview 09-2025",
+        "description": "Gemini 2.5 Flash Native Audio Preview 09-2025",
         "task": "realtime-multimodal",
         "is_multimodal": true,
         "input_modalities": [
@@ -1331,18 +1431,21 @@
           "text"
         ],
         "context_window": 131072,
-        "max_output_tokens": 65536,
-        "supports_thinking": false,
+        "max_output_tokens": 8192,
+        "supports_thinking": true,
         "supported_actions": [
+          "countTokens",
           "bidiGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 5,
+        "is_recommended": false
       },
       {
-        "id": "gemini-3.5-live-translate-preview",
-        "full_id": "models/gemini-3.5-live-translate-preview",
-        "display_name": "Gemini 3.5 Live Translate Preview",
-        "description": "Gemini 3.5 Live Translate Preview",
+        "id": "gemini-2.5-flash-native-audio-latest",
+        "full_id": "models/gemini-2.5-flash-native-audio-latest",
+        "display_name": "Gemini 2.5 Flash Native Audio Latest",
+        "description": "Latest release of Gemini 2.5 Flash Native Audio",
         "task": "realtime-multimodal",
         "is_multimodal": true,
         "input_modalities": [
@@ -1354,13 +1457,16 @@
           "audio",
           "text"
         ],
-        "context_window": 16384,
-        "max_output_tokens": 32768,
-        "supports_thinking": false,
+        "context_window": 131072,
+        "max_output_tokens": 8192,
+        "supports_thinking": true,
         "supported_actions": [
+          "countTokens",
           "bidiGenerateContent"
         ],
-        "temperature": 1.0
+        "temperature": 1.0,
+        "rank": 6,
+        "is_recommended": false
       }
     ]
   }

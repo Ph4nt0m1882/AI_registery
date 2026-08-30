@@ -244,16 +244,72 @@ def prompt_task_for_model(model, tasks_map):
         if choice in tasks_map:
             return choice, in_mods, out_mods, is_multi
 
+import re
+
+def score_model_for_ranking(model: dict):
+    """Calcule un score de pertinence pour trier les modèles du plus récent/recommandé au plus ancien."""
+    model_id = model["id"].lower()
+    
+    # 1. Famille (Gemini > Gemma > AQA / Autre)
+    family_score = 3
+    if model_id.startswith("gemma"):
+        family_score = 2
+    elif model_id == "aqa":
+        family_score = 1
+        
+    # 2. Date pour les modèles datés (ex: deep-research-max-preview-04-2026 -> 2026.33)
+    date_match = re.search(r'(\d{2})-(\d{4})', model_id)
+    date_score = 0.0
+    model_id_no_date = model_id
+    if date_match:
+        month, year = int(date_match.group(1)), int(date_match.group(2))
+        date_score = year + (month / 12.0)
+        model_id_no_date = model_id.replace(date_match.group(0), '')
+        
+    # 3. Numéro de version réel (ex: 3.7, 3.6, 3.5, 3.1, 2.5)
+    version_match = re.search(r'(\d+(?:\.\d+)?)', model_id_no_date)
+    version = float(version_match.group(1)) if version_match else (date_score if date_score > 0 else 1.0)
+        
+    # 4. Alias '-latest' (souvent le pointeur vers la version stable par excellence)
+    is_latest = 1 if "-latest" in model_id else 0
+    
+    # 5. Gamme de puissance (Max > Pro > Flash > Lite > Fast > Autre)
+    tier_weight = 3
+    if "max" in model_id:
+        tier_weight = 5
+    elif "pro" in model_id and "image" not in model_id:
+        tier_weight = 4
+    elif "flash" in model_id and "lite" not in model_id:
+        tier_weight = 3
+    elif "fast" in model_id:
+        tier_weight = 2
+    elif "lite" in model_id:
+        tier_weight = 1
+        
+    is_standard = 1 if ("lite" not in model_id and "fast" not in model_id and "customtools" not in model_id) else 0
+
+    return (family_score, version, date_score, is_latest, tier_weight, is_standard, model["id"])
+
 def save_registry(json_path: Path, categorized_tasks: dict, total_count: int):
-    """Sauvegarde le catalogue unifié au format JSON structuré par tâche."""
+    """Sauvegarde le catalogue unifié au format JSON structuré par tâche et ordonné par pertinence."""
+    sorted_tasks = {}
+    for task_id, models in categorized_tasks.items():
+        # Tri décroissant du meilleur/plus récent au plus ancien
+        sorted_list = sorted(models, key=score_model_for_ranking, reverse=True)
+        # Attribution du rank et du flag is_recommended
+        for rank, m in enumerate(sorted_list, 1):
+            m["rank"] = rank
+            m["is_recommended"] = (rank == 1)
+        sorted_tasks[task_id] = sorted_list
+
     output_data = {
         "schema_version": "1.0.0",
         "provider": "google_ai_studio",
         "name": "Google AI Studio (Gemini)",
         "updated_at": datetime.now().isoformat(),
         "total_models": total_count,
-        "tasks_summary": {k: len(v) for k, v in categorized_tasks.items()},
-        "tasks": categorized_tasks
+        "tasks_summary": {k: len(v) for k, v in sorted_tasks.items()},
+        "tasks": sorted_tasks
     }
     with open(json_path, "w", encoding="utf-8") as f:
         json.dump(output_data, f, indent=2, ensure_ascii=False)
