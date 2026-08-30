@@ -346,12 +346,36 @@ def main():
             new_classified += 1
             task_id, in_mods, out_mods, is_multi = prompt_task_for_model(model, tasks_map)
             
+        # Détermination du statut de mise en avant (Featured / Standard / Specialized / Legacy)
+        is_featured = short_key in {
+            "gemini-3.7-flash",
+            "gemini-3.5-flash-lite",
+            "gemini-3.1-pro-preview",
+            "deep-research-max-preview-04-2026",
+            "gemma-4-31b-it",
+            "veo-3.1-generate-preview",
+            "gemini-3.1-flash-image",
+            "lyria-3-pro-preview",
+            "gemini-3.1-flash-tts-preview",
+            "gemini-robotics-er-2-streaming-preview"
+        }
+        
+        tier = "standard"
+        if is_featured:
+            tier = "featured"
+        elif "customtools" in short_key or "computer-use" in short_key or short_key == "aqa" or "robotics" in short_key:
+            tier = "specialized"
+        elif "2.5" in short_key or "preview-12-2025" in short_key or "3-flash-preview" in short_key:
+            tier = "legacy"
+
         entry = {
             "id": short_key,
             "full_id": model.name,
             "display_name": model.display_name,
             "description": model.description,
             "task": task_id,
+            "tier": tier,
+            "is_featured": is_featured,
             "is_multimodal": is_multi,
             "input_modalities": in_mods,
             "output_modalities": out_mods,
