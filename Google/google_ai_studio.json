@@ -16,13 +16,130 @@
     "embeddings": 3,
     "realtime-multimodal": 8
   },
+  "quick_picks": {
+    "text-generation": [
+      {
+        "id": "gemini-3.8-flash",
+        "role": "latest",
+        "badge": "latest"
+      },
+      {
+        "id": "gemini-3.7-flash",
+        "role": "fast",
+        "badge": "Flash alternative"
+      },
+      {
+        "id": "gemini-3.1-pro-preview",
+        "role": "pro",
+        "badge": "last Pro"
+      },
+      {
+        "id": "gemma-4-31b-it",
+        "role": "open_source",
+        "badge": "Open Source"
+      }
+    ],
+    "text-to-speech": [
+      {
+        "id": "gemini-3.1-flash-tts-preview",
+        "role": "latest",
+        "badge": "latest"
+      },
+      {
+        "id": "gemini-2.5-pro-preview-tts",
+        "role": "quality",
+        "badge": "High fidelity"
+      }
+    ],
+    "text-to-image": [
+      {
+        "id": "gemini-3.1-flash-image",
+        "role": "latest",
+        "badge": "Nano Banana 2"
+      },
+      {
+        "id": "gemini-3-pro-image",
+        "role": "pro",
+        "badge": "Nano Banana Pro"
+      }
+    ],
+    "text-to-video": [
+      {
+        "id": "veo-3.1-generate-preview",
+        "role": "latest",
+        "badge": "Veo 3.1 Kinematic"
+      },
+      {
+        "id": "gemini-omni-1.1-flash",
+        "role": "interactive",
+        "badge": "Omni Flash"
+      }
+    ],
+    "speech-to-text": [
+      {
+        "id": "gemini-3.5-transcribe",
+        "role": "latest",
+        "badge": "Transcript Pro"
+      }
+    ],
+    "text-to-music": [
+      {
+        "id": "lyria-3.5",
+        "role": "latest",
+        "badge": "Lyria 3.5"
+      },
+      {
+        "id": "lyria-3-pro-preview",
+        "role": "pro",
+        "badge": "Lyria Pro"
+      }
+    ],
+    "robotics": [
+      {
+        "id": "gemini-robotics-er-2-streaming-preview",
+        "role": "latest",
+        "badge": "Robotics ER-2 Stream"
+      }
+    ],
+    "deep-research": [
+      {
+        "id": "deep-research-max-preview-04-2026",
+        "role": "latest",
+        "badge": "Deep Research Max"
+      },
+      {
+        "id": "antigravity-preview-09-2026",
+        "role": "agent",
+        "badge": "Antigravity Agent"
+      }
+    ],
+    "embeddings": [
+      {
+        "id": "gemini-embedding-2",
+        "role": "latest",
+        "badge": "Embedding 2 (Multimodal)"
+      }
+    ],
+    "realtime-multimodal": [
+      {
+        "id": "gemini-3.8-live",
+        "role": "latest",
+        "badge": "Gemini 3.8 Live"
+      },
+      {
+        "id": "gemini-3.8-live-extended-thinking",
+        "role": "thinking",
+        "badge": "Live Thinking"
+      }
+    ]
+  },
   "tasks": {
     "text-generation": [
       {
         "id": "gemini-3.8-flash",
         "full_id": "models/gemini-3.8-flash",
         "display_name": "Gemini 3.8 Flash",
-        "description": "Gemini 3.8 Flash",
+        "description": "Modèle phare ultra-rapide dernière génération, optimisé pour le chat multimodal, le raisonnement et les flux en temps réel.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -48,13 +165,15 @@
         ],
         "temperature": 1.0,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-3.7-flash",
         "full_id": "models/gemini-3.7-flash",
         "display_name": "Gemini 3.7 Flash",
-        "description": "Gemini 3.7 Flash",
+        "description": "Modèle multimodal véloce et efficient, excellent équilibre entre vitesse d'inférence, qualité de réponse et coût.",
         "task": "text-generation",
         "tier": "featured",
         "is_featured": true,
@@ -80,13 +199,15 @@
         ],
         "temperature": 1.0,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-3.6-flash",
         "full_id": "models/gemini-3.6-flash",
         "display_name": "Gemini 3.6 Flash",
-        "description": "Gemini 3.6 Flash",
+        "description": "Version stable et polyvalente de Gemini Flash, idéale pour les agents conversationnels et le traitement de documents.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -112,13 +233,15 @@
         ],
         "temperature": 1.0,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-3.5-flash",
         "full_id": "models/gemini-3.5-flash",
         "display_name": "Gemini 3.5 Flash",
-        "description": "Gemini 3.5 Flash",
+        "description": "Modèle compact ultra-rapide pour les requêtes à faible latence et l'analyse multimodale légère.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -144,13 +267,15 @@
         ],
         "temperature": 1.0,
         "rank": 4,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-3.5-flash-lite",
         "full_id": "models/gemini-3.5-flash-lite",
         "display_name": "Gemini 3.5 Flash Lite",
-        "description": "Gemini 3.5 Flash Lite",
+        "description": "Variante ultra-légère conçue pour le haut débit et les tâches de classification ou de résumé rapides.",
         "task": "text-generation",
         "tier": "featured",
         "is_featured": true,
@@ -176,13 +301,15 @@
         ],
         "temperature": 1.0,
         "rank": 5,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-3.1-pro-preview",
         "full_id": "models/gemini-3.1-pro-preview",
         "display_name": "Gemini 3.1 Pro Preview",
-        "description": "Gemini 3.1 Pro Preview",
+        "description": "Modèle de pointe pour le raisonnement approfondi, la programmation avancée et la résolution de problèmes complexes.",
         "task": "text-generation",
         "tier": "featured",
         "is_featured": true,
@@ -208,13 +335,15 @@
         ],
         "temperature": 1.0,
         "rank": 6,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "pro"
       },
       {
         "id": "gemini-3.1-pro-preview-customtools",
         "full_id": "models/gemini-3.1-pro-preview-customtools",
         "display_name": "Gemini 3.1 Pro Preview Custom Tools",
-        "description": "Gemini 3.1 Pro Preview optimized for custom tool usage",
+        "description": "Version Pro optimisée pour l'appel d'outils personnalisés (function calling) et l'orchestration d'agents.",
         "task": "text-generation",
         "tier": "specialized",
         "is_featured": false,
@@ -240,13 +369,15 @@
         ],
         "temperature": 1.0,
         "rank": 7,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "pro"
       },
       {
         "id": "gemini-3.1-flash-lite-preview",
         "full_id": "models/gemini-3.1-flash-lite-preview",
         "display_name": "Gemini 3.1 Flash Lite Preview",
-        "description": "Gemini 3.1 Flash Lite Preview",
+        "description": "Version preview de Flash Lite offrant une latence minimale pour les charges de travail intensives.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -272,13 +403,15 @@
         ],
         "temperature": 1.0,
         "rank": 8,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-3.1-flash-lite",
         "full_id": "models/gemini-3.1-flash-lite",
         "display_name": "Gemini 3.1 Flash Lite",
-        "description": "Gemini 3.1 Flash Lite",
+        "description": "Modèle économique à latence très réduite pour les micro-tâches textuelles et l'extraction d'informations.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -304,13 +437,15 @@
         ],
         "temperature": 1.0,
         "rank": 9,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-3-flash-preview",
         "full_id": "models/gemini-3-flash-preview",
         "display_name": "Gemini 3 Flash Preview",
-        "description": "Gemini 3 Flash Preview",
+        "description": "Preview intermédiaire de la famille Gemini 3 Flash pour tests et prototypage.",
         "task": "text-generation",
         "tier": "legacy",
         "is_featured": false,
@@ -336,13 +471,15 @@
         ],
         "temperature": 1.0,
         "rank": 10,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-2.5-pro",
         "full_id": "models/gemini-2.5-pro",
         "display_name": "Gemini 2.5 Pro",
-        "description": "Stable release (June 17th, 2025) of Gemini 2.5 Pro",
+        "description": "Modèle Pro de génération 2.5, reconnu pour sa robustesse en synthèse complexe et sa mémoire contextuelle.",
         "task": "text-generation",
         "tier": "legacy",
         "is_featured": false,
@@ -368,13 +505,15 @@
         ],
         "temperature": 1.0,
         "rank": 11,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "pro"
       },
       {
         "id": "gemini-2.5-flash",
         "full_id": "models/gemini-2.5-flash",
         "display_name": "Gemini 2.5 Flash",
-        "description": "Stable version of Gemini 2.5 Flash, our mid-size multimodal model that supports up to 1 million tokens, released in June of 2025.",
+        "description": "Version éprouvée de Gemini 2.5 Flash avec fenêtre de contexte d'un million de tokens.",
         "task": "text-generation",
         "tier": "legacy",
         "is_featured": false,
@@ -400,13 +539,15 @@
         ],
         "temperature": 1.0,
         "rank": 12,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-2.5-flash-lite",
         "full_id": "models/gemini-2.5-flash-lite",
         "display_name": "Gemini 2.5 Flash-Lite",
-        "description": "Stable version of Gemini 2.5 Flash-Lite, released in July of 2025",
+        "description": "Variante allégée de génération 2.5 pour les opérations nécessitant une rapidité maximale.",
         "task": "text-generation",
         "tier": "legacy",
         "is_featured": false,
@@ -432,13 +573,15 @@
         ],
         "temperature": 1.0,
         "rank": 13,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-pro-latest",
         "full_id": "models/gemini-pro-latest",
         "display_name": "Gemini Pro Latest",
-        "description": "Latest release of Gemini Pro",
+        "description": "Pointeur dynamique vers la dernière version stable de Gemini Pro.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -464,13 +607,15 @@
         ],
         "temperature": 1.0,
         "rank": 14,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "pro"
       },
       {
         "id": "gemini-flash-latest",
         "full_id": "models/gemini-flash-latest",
         "display_name": "Gemini Flash Latest",
-        "description": "Latest release of Gemini Flash",
+        "description": "Pointeur dynamique vers la dernière version stable de Gemini Flash.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -496,13 +641,15 @@
         ],
         "temperature": 1.0,
         "rank": 15,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemini-flash-lite-latest",
         "full_id": "models/gemini-flash-lite-latest",
         "display_name": "Gemini Flash-Lite Latest",
-        "description": "Latest release of Gemini Flash-Lite",
+        "description": "Pointeur dynamique vers la dernière version stable de Gemini Flash-Lite.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -528,13 +675,15 @@
         ],
         "temperature": 1.0,
         "rank": 16,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "flash"
       },
       {
         "id": "gemma-4-31b-it",
         "full_id": "models/gemma-4-31b-it",
         "display_name": "Gemma 4 31B IT",
-        "description": "Gemma 4 31B IT",
+        "description": "Grand modèle open-weights créé par Google DeepMind (31B paramètres), optimisé pour l'instruction et exécutable sur serveurs privés.",
         "task": "text-generation",
         "tier": "featured",
         "is_featured": true,
@@ -554,13 +703,15 @@
         ],
         "temperature": 1.0,
         "rank": 17,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": true,
+        "category": "open_source"
       },
       {
         "id": "gemma-4-26b-a4b-it",
         "full_id": "models/gemma-4-26b-a4b-it",
         "display_name": "Gemma 4 26B A4B IT",
-        "description": "Gemma 4 26B A4B IT",
+        "description": "Modèle open-weights efficient (26B paramètres) par Google DeepMind, adapté à l'auto-hébergement et aux serveurs dédiés.",
         "task": "text-generation",
         "tier": "standard",
         "is_featured": false,
@@ -580,13 +731,15 @@
         ],
         "temperature": 1.0,
         "rank": 18,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": true,
+        "category": "open_source"
       },
       {
         "id": "aqa",
         "full_id": "models/aqa",
         "display_name": "Model that performs Attributed Question Answering.",
-        "description": "Model trained to return answers to questions that are grounded in provided sources, along with estimating answerable probability.",
+        "description": "Modèle spécialisé en réponses fondées sur des sources vérifiées (Attributed Question Answering) avec indice de confiance.",
         "task": "text-generation",
         "tier": "specialized",
         "is_featured": false,
@@ -605,7 +758,9 @@
         ],
         "temperature": 0.2,
         "rank": 19,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "specialized"
       }
     ],
     "text-to-speech": [
@@ -613,7 +768,7 @@
         "id": "gemini-3.1-flash-tts-preview",
         "full_id": "models/gemini-3.1-flash-tts-preview",
         "display_name": "Gemini 3.1 Flash TTS Preview",
-        "description": "Gemini 3.1 Flash TTS Preview",
+        "description": "Synthèse vocale dernière génération capable de produire des voix naturelles et expressives à partir de texte.",
         "task": "text-to-speech",
         "tier": "featured",
         "is_featured": true,
@@ -634,13 +789,15 @@
         ],
         "temperature": 1.0,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "tts"
       },
       {
         "id": "gemini-2.5-pro-preview-tts",
         "full_id": "models/gemini-2.5-pro-preview-tts",
         "display_name": "Gemini 2.5 Pro Preview TTS",
-        "description": "Gemini 2.5 Pro Preview TTS",
+        "description": "Synthèse vocale haute fidélité avec contrôle nuancé des intonations et de l'accentuation.",
         "task": "text-to-speech",
         "tier": "legacy",
         "is_featured": false,
@@ -661,13 +818,15 @@
         ],
         "temperature": 1.0,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "tts"
       },
       {
         "id": "gemini-2.5-flash-preview-tts",
         "full_id": "models/gemini-2.5-flash-preview-tts",
         "display_name": "Gemini 2.5 Flash Preview TTS",
-        "description": "Gemini 2.5 Flash Preview TTS",
+        "description": "Synthèse vocale rapide et fluide pour les assistants vocaux et les réponses en temps réel.",
         "task": "text-to-speech",
         "tier": "legacy",
         "is_featured": false,
@@ -687,7 +846,9 @@
         ],
         "temperature": 1.0,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "tts"
       }
     ],
     "text-to-image": [
@@ -695,7 +856,7 @@
         "id": "gemini-3.1-flash-image-preview",
         "full_id": "models/gemini-3.1-flash-image-preview",
         "display_name": "Nano Banana 2",
-        "description": "Gemini 3.1 Flash Image Preview.",
+        "description": "Aperçu Nano Banana 2 pour la génération d'images créatives et la stylisation visuelle rapide.",
         "task": "text-to-image",
         "tier": "standard",
         "is_featured": false,
@@ -717,13 +878,15 @@
         ],
         "temperature": 1.0,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "image_gen"
       },
       {
         "id": "gemini-3.1-flash-image",
         "full_id": "models/gemini-3.1-flash-image",
         "display_name": "Nano Banana 2",
-        "description": "Gemini 3.1 Flash Image.",
+        "description": "Moteur Nano Banana 2 pour la génération d'images haute résolution à partir d'invites textuelles.",
         "task": "text-to-image",
         "tier": "featured",
         "is_featured": true,
@@ -745,13 +908,15 @@
         ],
         "temperature": 1.0,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "image_gen"
       },
       {
         "id": "gemini-3.1-flash-lite-image",
         "full_id": "models/gemini-3.1-flash-lite-image",
         "display_name": "Nano Banana 2 Lite",
-        "description": "Gemini 3.1 Flash Lite Image.",
+        "description": "Version Nano Banana 2 Lite ultra-rapide pour les vignettes et concepts visuels immédiats.",
         "task": "text-to-image",
         "tier": "standard",
         "is_featured": false,
@@ -773,13 +938,15 @@
         ],
         "temperature": 1.0,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "image_gen"
       },
       {
         "id": "gemini-3-pro-image-preview",
         "full_id": "models/gemini-3-pro-image-preview",
         "display_name": "Nano Banana Pro",
-        "description": "Gemini 3 Pro Image Preview",
+        "description": "Aperçu Nano Banana Pro pour le rendu photoréaliste et les textures complexes.",
         "task": "text-to-image",
         "tier": "standard",
         "is_featured": false,
@@ -801,13 +968,15 @@
         ],
         "temperature": 1.0,
         "rank": 4,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "image_gen"
       },
       {
         "id": "gemini-3-pro-image",
         "full_id": "models/gemini-3-pro-image",
         "display_name": "Nano Banana Pro",
-        "description": "Gemini 3 Pro Image",
+        "description": "Moteur d'imagerie Nano Banana Pro pour des compositions artistiques détaillées et la typographie intégrée.",
         "task": "text-to-image",
         "tier": "standard",
         "is_featured": false,
@@ -829,13 +998,15 @@
         ],
         "temperature": 1.0,
         "rank": 5,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "image_gen"
       },
       {
         "id": "gemini-2.5-flash-image",
         "full_id": "models/gemini-2.5-flash-image",
         "display_name": "Nano Banana",
-        "description": "Gemini 2.5 Flash Preview Image",
+        "description": "Génération d'images rapide de génération 2.5.",
         "task": "text-to-image",
         "tier": "legacy",
         "is_featured": false,
@@ -857,13 +1028,15 @@
         ],
         "temperature": 1.0,
         "rank": 6,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "image_gen"
       },
       {
         "id": "nano-banana-pro-preview",
         "full_id": "models/nano-banana-pro-preview",
         "display_name": "Nano Banana Pro",
-        "description": "Gemini 3 Pro Image Preview",
+        "description": "Preview avancée du moteur d'imagerie Nano Banana Pro.",
         "task": "text-to-image",
         "tier": "standard",
         "is_featured": false,
@@ -885,7 +1058,9 @@
         ],
         "temperature": 1.0,
         "rank": 7,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "image_gen"
       }
     ],
     "text-to-video": [
@@ -893,7 +1068,7 @@
         "id": "veo-3.1-generate-preview",
         "full_id": "models/veo-3.1-generate-preview",
         "display_name": "Veo 3.1",
-        "description": "Veo 3.1",
+        "description": "Moteur de génération vidéo cinématique Veo 3.1, capable de scènes fluides et cohérentes en 1080p.",
         "task": "text-to-video",
         "tier": "featured",
         "is_featured": true,
@@ -914,13 +1089,15 @@
         ],
         "temperature": null,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "video_gen"
       },
       {
         "id": "veo-3.1-fast-generate-preview",
         "full_id": "models/veo-3.1-fast-generate-preview",
         "display_name": "Veo 3.1 fast",
-        "description": "Veo 3.1 fast",
+        "description": "Génération vidéo rapide pour le prototypage animé et les storyboards dynamiques.",
         "task": "text-to-video",
         "tier": "standard",
         "is_featured": false,
@@ -941,13 +1118,15 @@
         ],
         "temperature": null,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "video_gen"
       },
       {
         "id": "veo-3.1-lite-generate-preview",
         "full_id": "models/veo-3.1-lite-generate-preview",
         "display_name": "Veo 3.1 lite",
-        "description": "Veo 3.1 lite",
+        "description": "Version compacte de Veo optimisée pour des rendus vidéo courts et légers.",
         "task": "text-to-video",
         "tier": "standard",
         "is_featured": false,
@@ -968,13 +1147,15 @@
         ],
         "temperature": null,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "video_gen"
       },
       {
         "id": "gemini-omni-1.1-flash",
         "full_id": "models/gemini-omni-1.1-flash",
         "display_name": "Gemini Omni 1.1 Flash",
-        "description": "Gemini Omni 1.1 Flash ",
+        "description": "Modèle omni-modal pour l'édition et la génération vidéo interactive avec compréhension multimodale.",
         "task": "text-to-video",
         "tier": "standard",
         "is_featured": false,
@@ -999,13 +1180,15 @@
         ],
         "temperature": 1.0,
         "rank": 4,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "omni"
       },
       {
         "id": "gemini-omni-flash-preview",
         "full_id": "models/gemini-omni-flash-preview",
         "display_name": "Gemini Omni Flash Preview",
-        "description": "Gemini Omni Flash Preview",
+        "description": "Aperçu technologique du modèle Gemini Omni pour la vidéo interactive.",
         "task": "text-to-video",
         "tier": "standard",
         "is_featured": false,
@@ -1030,7 +1213,9 @@
         ],
         "temperature": 1.0,
         "rank": 5,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "omni"
       }
     ],
     "speech-to-text": [
@@ -1038,7 +1223,7 @@
         "id": "gemini-3.5-transcribe",
         "full_id": "models/gemini-3.5-transcribe",
         "display_name": "Gemini 3.5 Transcribe",
-        "description": "Gemini 3.5 Transcribe",
+        "description": "Transcription audio multilingue haute précision avec détection des locuteurs et horodatage.",
         "task": "speech-to-text",
         "tier": "standard",
         "is_featured": false,
@@ -1058,7 +1243,9 @@
         ],
         "temperature": 1.0,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "stt"
       }
     ],
     "text-to-music": [
@@ -1066,7 +1253,7 @@
         "id": "lyria-3.5",
         "full_id": "models/lyria-3.5",
         "display_name": "Lyria 3.5",
-        "description": "Music Generation model",
+        "description": "Modèle avancé de composition musicale générative par Google DeepMind (mélodie, harmonie et instrumentation).",
         "task": "text-to-music",
         "tier": "standard",
         "is_featured": false,
@@ -1087,13 +1274,15 @@
         ],
         "temperature": 1.0,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "music"
       },
       {
         "id": "lyria-3-pro-preview",
         "full_id": "models/lyria-3-pro-preview",
         "display_name": "Lyria 3 Pro Preview",
-        "description": "Lyria 3 Pro Preview",
+        "description": "Version professionnelle de Lyria permettant un contrôle fin de la structure, des genres et du tempo musical.",
         "task": "text-to-music",
         "tier": "featured",
         "is_featured": true,
@@ -1114,13 +1303,15 @@
         ],
         "temperature": 1.0,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "music"
       },
       {
         "id": "lyria-3-clip-preview",
         "full_id": "models/lyria-3-clip-preview",
         "display_name": "Lyria 3 Clip Preview",
-        "description": "Lyria 3 30s model Preview",
+        "description": "Génération rapide de jingles et d'extraits musicaux percutants de 30 secondes.",
         "task": "text-to-music",
         "tier": "standard",
         "is_featured": false,
@@ -1141,13 +1332,15 @@
         ],
         "temperature": 1.0,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "music"
       },
       {
         "id": "lyria-realtime-exp",
         "full_id": "models/lyria-realtime-exp",
         "display_name": "Lyria Realtime Experimental",
-        "description": "Lyria Realtime Experimental",
+        "description": "Composition musicale expérimentale interactive en temps réel.",
         "task": "text-to-music",
         "tier": "standard",
         "is_featured": false,
@@ -1167,7 +1360,9 @@
         ],
         "temperature": null,
         "rank": 4,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "music"
       }
     ],
     "robotics": [
@@ -1175,7 +1370,7 @@
         "id": "gemini-robotics-er-2-streaming-preview",
         "full_id": "models/gemini-robotics-er-2-streaming-preview",
         "display_name": "Gemini Robotics-ER 2 Streaming Preview",
-        "description": "Gemini Robotics-ER 2 Streaming Preview",
+        "description": "Modèle de raisonnement spatial et de manipulation robotique en flux continu temps réel (Embodied AI).",
         "task": "robotics",
         "tier": "featured",
         "is_featured": true,
@@ -1197,13 +1392,15 @@
         ],
         "temperature": 1.0,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "robotics"
       },
       {
         "id": "gemini-robotics-er-2-preview",
         "full_id": "models/gemini-robotics-er-2-preview",
         "display_name": "Gemini Robotics-ER 2 Preview",
-        "description": "Gemini Robotics-ER 2 Preview",
+        "description": "Planification d'actions physiques, compréhension de scènes 3D et contrôle d'actionneurs robotiques.",
         "task": "robotics",
         "tier": "specialized",
         "is_featured": false,
@@ -1226,7 +1423,9 @@
         ],
         "temperature": 1.0,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "robotics"
       }
     ],
     "deep-research": [
@@ -1234,7 +1433,7 @@
         "id": "antigravity-preview-09-2026",
         "full_id": "models/antigravity-preview-09-2026",
         "display_name": "Antigravity Agent Preview",
-        "description": "Preview release of Antigravity Agent (09-2026)",
+        "description": "Modèle d'agent autonome avancé pour la planification multi-tâches et l'orchestration de code.",
         "task": "deep-research",
         "tier": "standard",
         "is_featured": false,
@@ -1255,13 +1454,15 @@
         ],
         "temperature": null,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "agent"
       },
       {
         "id": "antigravity-preview-05-2026",
         "full_id": "models/antigravity-preview-05-2026",
         "display_name": "Antigravity Agent Preview",
-        "description": "Preview release of Antigravity Agent (05-2026)",
+        "description": "Preview du moteur agentique Antigravity pour l'exécution d'outils et de workflows autonomes.",
         "task": "deep-research",
         "tier": "standard",
         "is_featured": false,
@@ -1282,13 +1483,15 @@
         ],
         "temperature": null,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "agent"
       },
       {
         "id": "deep-research-max-preview-04-2026",
         "full_id": "models/deep-research-max-preview-04-2026",
         "display_name": "Deep Research Max Preview (Apr-21-2026)",
-        "description": "Preview release (April 21st, 2026) of Deep Research Max",
+        "description": "Agent de recherche approfondie autonome : explore le web, recoupe des dizaines de sources et produit des synthèses complètes.",
         "task": "deep-research",
         "tier": "featured",
         "is_featured": true,
@@ -1309,13 +1512,15 @@
         ],
         "temperature": 1.0,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "research"
       },
       {
         "id": "deep-research-preview-04-2026",
         "full_id": "models/deep-research-preview-04-2026",
         "display_name": "Deep Research Preview (Apr-21-2026)",
-        "description": "Preview release (April 21th, 2026) of Deep Research",
+        "description": "Agent de recherche web itérative et d'analyse documentaire multi-étapes.",
         "task": "deep-research",
         "tier": "standard",
         "is_featured": false,
@@ -1336,13 +1541,15 @@
         ],
         "temperature": 1.0,
         "rank": 4,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "research"
       },
       {
         "id": "deep-research-pro-preview-12-2025",
         "full_id": "models/deep-research-pro-preview-12-2025",
         "display_name": "Deep Research Pro Preview (Dec-12-2025)",
-        "description": "Preview release (December 12th, 2025) of Deep Research Pro",
+        "description": "Version Pro de recherche documentaire et d'agrégation d'informations synthétiques.",
         "task": "deep-research",
         "tier": "legacy",
         "is_featured": false,
@@ -1363,13 +1570,15 @@
         ],
         "temperature": 1.0,
         "rank": 5,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "research"
       },
       {
         "id": "gemini-2.5-computer-use-preview-10-2025",
         "full_id": "models/gemini-2.5-computer-use-preview-10-2025",
         "display_name": "Gemini 2.5 Computer Use Preview 10-2025",
-        "description": "Gemini 2.5 Computer Use Preview 10-2025",
+        "description": "Modèle spécialisé dans l'interaction avec des interfaces graphiques de bureau (clics, frappe, navigation).",
         "task": "deep-research",
         "tier": "specialized",
         "is_featured": false,
@@ -1390,7 +1599,9 @@
         ],
         "temperature": 1.0,
         "rank": 6,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "computer_use"
       }
     ],
     "embeddings": [
@@ -1398,7 +1609,7 @@
         "id": "gemini-embedding-2-preview",
         "full_id": "models/gemini-embedding-2-preview",
         "display_name": "Gemini Embedding 2 Preview",
-        "description": "Obtain a distributed representation of multimodal content.",
+        "description": "Version preview de Gemini Embedding 2 avec représentation vectorielle haute dimension.",
         "task": "embeddings",
         "tier": "standard",
         "is_featured": false,
@@ -1423,13 +1634,15 @@
         ],
         "temperature": null,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "embedding"
       },
       {
         "id": "gemini-embedding-2",
         "full_id": "models/gemini-embedding-2",
         "display_name": "Gemini Embedding 2",
-        "description": "Obtain a distributed representation of multimodal content.",
+        "description": "Modèle de vectorisation multimodale de pointe pour la recherche sémantique (RAG), indexant texte, image et audio.",
         "task": "embeddings",
         "tier": "standard",
         "is_featured": false,
@@ -1454,13 +1667,15 @@
         ],
         "temperature": null,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "embedding"
       },
       {
         "id": "gemini-embedding-001",
         "full_id": "models/gemini-embedding-001",
         "display_name": "Gemini Embedding 001",
-        "description": "Obtain a distributed representation of a text.",
+        "description": "Modèle classique de plongements textuels pour la recherche par similarité et la classification.",
         "task": "embeddings",
         "tier": "standard",
         "is_featured": false,
@@ -1482,7 +1697,9 @@
         ],
         "temperature": null,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "embedding"
       }
     ],
     "realtime-multimodal": [
@@ -1490,7 +1707,7 @@
         "id": "gemini-3.8-live-extended-thinking",
         "full_id": "models/gemini-3.8-live-extended-thinking",
         "display_name": "Gemini 3.8 Live Extended Thinking",
-        "description": "Gemini 3.8 Live Extended Thinking",
+        "description": "Interaction vocale et visuelle bidirectionnelle en direct avec capacité de réflexion intermédiaire (Live Thinking).",
         "task": "realtime-multimodal",
         "tier": "standard",
         "is_featured": false,
@@ -1512,13 +1729,15 @@
         ],
         "temperature": 1.0,
         "rank": 1,
-        "is_recommended": true
+        "is_recommended": true,
+        "is_open_source": false,
+        "category": "thinking"
       },
       {
         "id": "gemini-3.8-live",
         "full_id": "models/gemini-3.8-live",
         "display_name": "Gemini 3.8 Live",
-        "description": "Gemini 3.8 Live",
+        "description": "Modèle temps réel à ultra-faible latence pour conversations vocales naturelles et analyse de flux caméra en direct.",
         "task": "realtime-multimodal",
         "tier": "standard",
         "is_featured": false,
@@ -1540,13 +1759,15 @@
         ],
         "temperature": 1.0,
         "rank": 2,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "live"
       },
       {
         "id": "gemini-3.5-transcribe-live",
         "full_id": "models/gemini-3.5-transcribe-live",
         "display_name": "Gemini 3.5 Transcribe Live",
-        "description": "Gemini 3.5 Transcribe Live",
+        "description": "Transcription vocale continue en direct avec latence ultra-faible.",
         "task": "realtime-multimodal",
         "tier": "standard",
         "is_featured": false,
@@ -1568,13 +1789,15 @@
         ],
         "temperature": 1.0,
         "rank": 3,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "transcribe"
       },
       {
         "id": "gemini-3.5-live-translate-preview",
         "full_id": "models/gemini-3.5-live-translate-preview",
         "display_name": "Gemini 3.5 Live Translate Preview",
-        "description": "Gemini 3.5 Live Translate Preview",
+        "description": "Traduction vocale instantanée en direct entre multiples langues avec préservation du timbre.",
         "task": "realtime-multimodal",
         "tier": "standard",
         "is_featured": false,
@@ -1596,13 +1819,15 @@
         ],
         "temperature": 1.0,
         "rank": 4,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "translate"
       },
       {
         "id": "gemini-3.1-flash-live-preview",
         "full_id": "models/gemini-3.1-flash-live-preview",
         "display_name": "Gemini 3.1 Flash Live Preview",
-        "description": "Gemini 3.1 Flash Live Preview",
+        "description": "Modèle Live léger pour interactions vocales fluides sur petits appareils ou connexions limitées.",
         "task": "realtime-multimodal",
         "tier": "standard",
         "is_featured": false,
@@ -1624,13 +1849,15 @@
         ],
         "temperature": 1.0,
         "rank": 5,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "live"
       },
       {
         "id": "gemini-2.5-flash-native-audio-preview-12-2025",
         "full_id": "models/gemini-2.5-flash-native-audio-preview-12-2025",
         "display_name": "Gemini 2.5 Flash Native Audio Preview 12-2025",
-        "description": "Gemini 2.5 Flash Native Audio Preview 12-2025",
+        "description": "Version preview 12-2025 pour l'analyse et la compréhension audio native.",
         "task": "realtime-multimodal",
         "tier": "legacy",
         "is_featured": false,
@@ -1653,13 +1880,15 @@
         ],
         "temperature": 1.0,
         "rank": 6,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "live"
       },
       {
         "id": "gemini-2.5-flash-native-audio-preview-09-2025",
         "full_id": "models/gemini-2.5-flash-native-audio-preview-09-2025",
         "display_name": "Gemini 2.5 Flash Native Audio Preview 09-2025",
-        "description": "Gemini 2.5 Flash Native Audio Preview 09-2025",
+        "description": "Version preview 09-2025 pour l'analyse audio native.",
         "task": "realtime-multimodal",
         "tier": "legacy",
         "is_featured": false,
@@ -1682,13 +1911,15 @@
         ],
         "temperature": 1.0,
         "rank": 7,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "live"
       },
       {
         "id": "gemini-2.5-flash-native-audio-latest",
         "full_id": "models/gemini-2.5-flash-native-audio-latest",
         "display_name": "Gemini 2.5 Flash Native Audio Latest",
-        "description": "Latest release of Gemini 2.5 Flash Native Audio",
+        "description": "Pointeur vers le modèle stable de traitement audio natif sans conversion intermédiaire.",
         "task": "realtime-multimodal",
         "tier": "legacy",
         "is_featured": false,
@@ -1711,7 +1942,9 @@
         ],
         "temperature": 1.0,
         "rank": 8,
-        "is_recommended": false
+        "is_recommended": false,
+        "is_open_source": false,
+        "category": "live"
       }
     ]
   }
