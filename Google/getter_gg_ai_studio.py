@@ -2,7 +2,6 @@ import argparse
 import json
 import os
 import re
-import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -19,7 +18,7 @@ if not os.getenv("GEMINI_API_KEY"):
                 line = line.strip()
                 if "=" in line and not line.startswith("#"):
                     k, v = line.split("=", 1)
-                    os.environ.setdefault(k.strip(), v.strip().strip('"\''))
+                    os.environ.setdefault(k.strip(), v.strip().strip("\"'"))
             break
 
 API_KEY = os.getenv("GEMINI_API_KEY")
@@ -122,7 +121,9 @@ FEATURED_MODELS = {
 }
 
 
-def infer_model_features(short_id: str, supported_actions: list, supports_thinking: bool) -> dict:
+def infer_model_features(
+    short_id: str, supported_actions: list, supports_thinking: bool
+) -> dict:
     """Déduit les capacités fonctionnelles (features) du modèle."""
     name_lower = short_id.lower()
     actions = supported_actions or []
@@ -130,13 +131,25 @@ def infer_model_features(short_id: str, supported_actions: list, supports_thinki
     is_content_gen = "generateContent" in actions or "bidiGenerateContent" in actions
     is_specialized = any(
         x in name_lower
-        for x in ["tts", "music", "lyria", "embedding", "veo", "banana", "imagen", "transcribe", "stt"]
+        for x in [
+            "tts",
+            "music",
+            "lyria",
+            "embedding",
+            "veo",
+            "banana",
+            "imagen",
+            "transcribe",
+            "stt",
+        ]
     )
 
     thinking = supports_thinking or ("thinking" in name_lower)
     function_calling = is_content_gen and not is_specialized
     structured_outputs = is_content_gen and not is_specialized
-    system_instruction = is_content_gen and not any(x in name_lower for x in ["embedding", "music", "lyria", "veo"])
+    system_instruction = is_content_gen and not any(
+        x in name_lower for x in ["embedding", "music", "lyria", "veo"]
+    )
     caching = "createCachedContent" in actions
     streaming = "generateContent" in actions or "bidiGenerateContent" in actions
 
@@ -150,7 +163,9 @@ def infer_model_features(short_id: str, supported_actions: list, supports_thinki
     }
 
 
-def detect_modalities_and_task_hint(short_id: str, desc: str = "", actions: list = None):
+def detect_modalities_and_task_hint(
+    short_id: str, desc: str = "", actions: list = None
+):
     """Détecte les modalités (inputs/outputs) et suggère la tâche principale."""
     name_lower = short_id.lower()
     desc_lower = (desc or "").lower()
@@ -181,7 +196,11 @@ def detect_modalities_and_task_hint(short_id: str, desc: str = "", actions: list
         suggested_task_id = "speech-to-text"
         input_modalities = ["audio"]
         output_modalities = ["text"]
-    elif "bidiGenerateContent" in actions or "native-audio" in name_lower or "live" in name_lower:
+    elif (
+        "bidiGenerateContent" in actions
+        or "native-audio" in name_lower
+        or "live" in name_lower
+    ):
         suggested_task_id = "realtime-multimodal"
         input_modalities = ["audio", "text", "video"]
         output_modalities = ["audio", "text"]
@@ -200,7 +219,11 @@ def detect_modalities_and_task_hint(short_id: str, desc: str = "", actions: list
         supports_documents = True
     elif "embedding" in name_lower or "embedContent" in actions:
         suggested_task_id = "embeddings"
-        input_modalities = ["text", "image", "audio", "video"] if "embedding-2" in name_lower else ["text"]
+        input_modalities = (
+            ["text", "image", "audio", "video"]
+            if "embedding-2" in name_lower
+            else ["text"]
+        )
         output_modalities = ["embeddings"]
     elif "gemini" in name_lower:
         suggested_task_id = "text-generation"
@@ -258,9 +281,14 @@ def infer_tier(short_id: str) -> str:
     name_lower = short_id.lower()
     if short_id in FEATURED_MODELS:
         return "featured"
-    if any(x in name_lower for x in ["customtools", "computer-use", "robotics"]) or short_id == "aqa":
+    if (
+        any(x in name_lower for x in ["customtools", "computer-use", "robotics"])
+        or short_id == "aqa"
+    ):
         return "specialized"
-    if any(x in name_lower for x in ["2.5", "preview-12-2025", "3-flash-preview", "1.5"]):
+    if any(
+        x in name_lower for x in ["2.5", "preview-12-2025", "3-flash-preview", "1.5"]
+    ):
         return "legacy"
     if "preview" in name_lower:
         return "preview"
@@ -275,7 +303,13 @@ def score_model_for_ranking(model_card: dict):
     tier = model_card.get("tier", "standard")
     if model_card["id"] in FEATURED_MODELS:
         tier = "featured"
-    tier_weights = {"featured": 5, "standard": 4, "preview": 3, "specialized": 2, "legacy": 1}
+    tier_weights = {
+        "featured": 5,
+        "standard": 4,
+        "preview": 3,
+        "specialized": 2,
+        "legacy": 1,
+    }
     tier_weight = tier_weights.get(tier, 3)
 
     # 2. Famille (Gemini > Gemma > AQA / Autre)
@@ -334,7 +368,9 @@ def load_existing_registry(json_path: Path):
                 for m in models_list:
                     if not isinstance(m, dict):
                         continue
-                    short_id = m.get("id") or m.get("full_id", "").replace("models/", "")
+                    short_id = m.get("id") or m.get("full_id", "").replace(
+                        "models/", ""
+                    )
                     full_id = m.get("full_id") or f"models/{short_id}"
 
                     raw_in_mods = m.get("input_modalities", ["text"])
@@ -361,9 +397,13 @@ def load_existing_registry(json_path: Path):
                         "category": m.get("category", infer_category(short_id)),
                         "tier": tier,
                         "is_recommended": m.get("is_recommended", False),
-                        "is_open_source": m.get("is_open_source", "gemma" in short_id.lower()),
+                        "is_open_source": m.get(
+                            "is_open_source", "gemma" in short_id.lower()
+                        ),
                         "description": m.get("description", {}),
-                        "tasks": [task_id] if isinstance(task_id, str) else ["text-generation"],
+                        "tasks": [task_id]
+                        if isinstance(task_id, str)
+                        else ["text-generation"],
                         "modalities": {
                             "input": clean_in_mods,
                             "output": m.get("output_modalities", ["text"]),
@@ -381,9 +421,13 @@ def load_existing_registry(json_path: Path):
                     existing_models[short_id] = card
                     existing_models[full_id] = card
 
-        print(f"📖 Chargement réussi du registre précédent ({len(existing_models)} entrées indexées).")
+        print(
+            f"📖 Chargement réussi du registre précédent ({len(existing_models)} entrées indexées)."
+        )
     except Exception as e:
-        print(f"⚠️ Impossible de charger l'ancien registre ({e}). Création d'une nouvelle base.")
+        print(
+            f"⚠️ Impossible de charger l'ancien registre ({e}). Création d'une nouvelle base."
+        )
 
     return existing_models, quick_picks
 
@@ -426,16 +470,24 @@ def build_v2_model_card(live_model, existing_card: dict = None) -> dict:
         else:
             tier = existing_card.get("tier", infer_tier(short_id))
 
-        is_open_source = existing_card.get("is_open_source", "gemma" in short_id.lower())
+        is_open_source = existing_card.get(
+            "is_open_source", "gemma" in short_id.lower()
+        )
 
         ex_modalities = existing_card.get("modalities", {})
         modalities = {
             "input": ex_modalities.get("input", in_mods),
             "output": ex_modalities.get("output", out_mods),
-            "supports_documents": ex_modalities.get("supports_documents", supports_docs),
+            "supports_documents": ex_modalities.get(
+                "supports_documents", supports_docs
+            ),
         }
     else:
-        desc = {"en": live_model.description} if getattr(live_model, "description", None) else {}
+        desc = (
+            {"en": live_model.description}
+            if getattr(live_model, "description", None)
+            else {}
+        )
         tasks = [sugg_task]
         category = infer_category(short_id)
         tier = infer_tier(short_id)
@@ -472,9 +524,17 @@ def build_v2_model_card(live_model, existing_card: dict = None) -> dict:
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Mettre à jour le catalogue de modèles Google AI Studio (V2).")
-    parser.add_argument("--dry-run", action="store_true", help="Simule l'exécution sans sauvegarder.")
-    parser.add_argument("--force-offline", action="store_true", help="Recalcule le catalogue uniquement depuis le JSON local existant sans appeler l'API.")
+    parser = argparse.ArgumentParser(
+        description="Mettre à jour le catalogue de modèles Google AI Studio (V2)."
+    )
+    parser.add_argument(
+        "--dry-run", action="store_true", help="Simule l'exécution sans sauvegarder."
+    )
+    parser.add_argument(
+        "--force-offline",
+        action="store_true",
+        help="Recalcule le catalogue uniquement depuis le JSON local existant sans appeler l'API.",
+    )
     args = parser.parse_args()
 
     json_path = Path(__file__).resolve().parent / "google_ai_studio.json"
@@ -487,14 +547,21 @@ def main():
     if not args.force_offline:
         api_key = API_KEY or os.getenv("GEMINI_API_KEY")
         if not api_key:
-            print("⚠️ Aucune clé GEMINI_API_KEY trouvée dans l'environnement ni dans le .env.")
-            api_key = input("👉 Entrez votre clé API Gemini (ou appuyez sur Entrée pour mode local) : ").strip()
+            print(
+                "⚠️ Aucune clé GEMINI_API_KEY trouvée dans l'environnement ni dans le .env."
+            )
+            api_key = input(
+                "👉 Entrez votre clé API Gemini (ou appuyez sur Entrée pour mode local) : "
+            ).strip()
 
         if api_key:
             try:
                 from google import genai
+
                 client = genai.Client(api_key=api_key)
-                print("📡 Récupération de la liste en direct depuis Google AI Studio...")
+                print(
+                    "📡 Récupération de la liste en direct depuis Google AI Studio..."
+                )
                 live_models = list(client.models.list())
                 print(f"✅ {len(live_models)} modèles récupérés depuis l'API.")
             except Exception as e:
@@ -521,19 +588,24 @@ def main():
         return
 
     # 3. Recalculer le scoring et le classement (Ranking)
-    sorted_cards = sorted(processed_models.values(), key=score_model_for_ranking, reverse=True)
+    sorted_cards = sorted(
+        processed_models.values(), key=score_model_for_ranking, reverse=True
+    )
 
     # Attribuer les rangs globaux et déterminer les recommandations par tâche
     task_leaders = {}
     for rank, card in enumerate(sorted_cards, 1):
         card["rank"] = rank
         primary_task = card["tasks"][0] if card["tasks"] else "text-generation"
-        if primary_task not in task_leaders and card.get("tier") in ("featured", "standard"):
+        if primary_task not in task_leaders and card.get("tier") in (
+            "featured",
+            "standard",
+        ):
             task_leaders[primary_task] = card["id"]
 
     for card in sorted_cards:
         primary_task = card["tasks"][0] if card["tasks"] else "text-generation"
-        card["is_recommended"] = (task_leaders.get(primary_task) == card["id"])
+        card["is_recommended"] = task_leaders.get(primary_task) == card["id"]
 
     # 4. Calcul dynamique du résumé des tâches (sans duplication de modèles)
     tasks_summary = {}
@@ -558,8 +630,14 @@ def main():
 
     if args.dry_run:
         print("\n🔎 MODE SIMULATION (--dry-run) : Aucun fichier modifié.")
-        sample_id = "gemini-3.8-flash" if "gemini-3.8-flash" in final_models else next(iter(final_models))
-        print(f"Exemple de fiche pour '{sample_id}' :\n{json.dumps(final_models.get(sample_id), indent=2, ensure_ascii=False)}")
+        sample_id = (
+            "gemini-3.8-flash"
+            if "gemini-3.8-flash" in final_models
+            else next(iter(final_models))
+        )
+        print(
+            f"Exemple de fiche pour '{sample_id}' :\n{json.dumps(final_models.get(sample_id), indent=2, ensure_ascii=False)}"
+        )
         return
 
     # Sauvegarde atomique du nouveau JSON
