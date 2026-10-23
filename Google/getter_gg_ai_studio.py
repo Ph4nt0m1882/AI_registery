@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 import re
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 
@@ -432,7 +433,176 @@ def load_existing_registry(json_path: Path):
     return existing_models, quick_picks
 
 
-def build_v2_model_card(live_model, existing_card: dict = None) -> dict:
+OPENROUTER_API_URL = "https://openrouter.ai/api/v1/models"
+GOOGLE_PRICING_DOCS_URL = "https://ai.google.dev/gemini-api/docs/pricing.md.txt"
+
+
+def fetch_openrouter_pricing(
+    provider_prefix: str = "google/",
+) -> dict[str, dict[str, float]]:
+    """
+    Récupère les tarifs par million de tokens depuis l'API publique d'OpenRouter.
+    Format retourné : { "model-id": {"input_per_1m": 0.15, "output_per_1m": 0.60} }
+    """
+    pricing_map: dict[str, dict[str, float]] = {}
+    try:
+        req = urllib.request.Request(
+            OPENROUTER_API_URL,
+            headers={"User-Agent": "AI-Registry-Updater/2.0"},
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+
+        for item in payload.get("data", []):
+            full_or_id = item.get("id", "")
+            if not full_or_id.startswith(provider_prefix):
+                continue
+
+            short_id = full_or_id.removeprefix(provider_prefix)
+            is_variant = ":" in short_id
+            base_id = short_id.split(":", 1)[0]
+
+            # Ne pas écraser le tarif standard par une variante ':free' ou ':extended'
+            if is_variant and base_id in pricing_map:
+                continue
+
+            pricing = item.get("pricing") or {}
+            try:
+                prompt_per_token = float(pricing.get("prompt", -1))
+                completion_per_token = float(pricing.get("completion", -1))
+            except (TypeError, ValueError):
+                continue
+
+            if prompt_per_token < 0 or completion_per_token < 0:
+                continue
+
+            entry = {
+                "input_per_1m": round(prompt_per_token * 1_000_000, 4),
+                "output_per_1m": round(completion_per_token * 1_000_000, 4),
+            }
+            pricing_map[short_id] = entry
+            if not is_variant:
+                pricing_map[base_id] = entry
+
+        print(
+            f"💰 OpenRouter : tarifs récupérés pour {len(pricing_map)} modèles ({provider_prefix.rstrip('/')})."
+        )
+    except Exception as e:
+        print(f"⚠️ Impossible de récupérer les tarifs OpenRouter ({e}).")
+
+    return pricing_map
+
+
+def fetch_google_docs_pricing() -> dict[str, dict[str, float]]:
+    """
+    Complète les tarifs avec la page officielle Markdown de Google AI Studio
+    pour les modèles exclusifs non référencés sur OpenRouter (Live, TTS, Transcribe, etc.).
+    """
+    pricing_map: dict[str, dict[str, float]] = {}
+    try:
+        req = urllib.request.Request(
+            GOOGLE_PRICING_DOCS_URL,
+            headers={"User-Agent": "AI-Registry-Updater/2.0"},
+        )
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            md_text = resp.read().decode("utf-8")
+
+        for section in md_text.split("\n## "):
+            model_ids = re.findall(r"\[`([a-z0-9.\-]+)`\]", section)
+            if not model_ids:
+                continue
+
+            # On ne garde que la table Standard (avant ### Batch / ### Flex / ### Priority)
+            standard_block = re.split(r"\n### (?:Batch|Flex|Priority)", section)[0]
+            input_price = None
+            output_price = None
+
+            for line in standard_block.splitlines():
+                line_s = line.strip()
+                if line_s.startswith("| Input price"):
+                    cols = [c.strip() for c in line_s.split("|")]
+                    if len(cols) >= 4:
+                        m = re.search(r"\$(\d+(?:\.\d+)?)", cols[3])
+                        if m:
+                            input_price = float(m.group(1))
+                        elif "free of charge" in cols[3].lower():
+                            input_price = 0.0
+                elif line_s.startswith("| Output price"):
+                    cols = [c.strip() for c in line_s.split("|")]
+                    if len(cols) >= 4:
+                        m = re.search(r"\$(\d+(?:\.\d+)?)", cols[3])
+                        if m:
+                            output_price = float(m.group(1))
+                        elif "free of charge" in cols[3].lower():
+                            output_price = 0.0
+
+            if input_price is not None or output_price is not None:
+                entry = {
+                    "input_per_1m": input_price if input_price is not None else 0.0,
+                    "output_per_1m": output_price if output_price is not None else 0.0,
+                }
+                for m_id in model_ids:
+                    pricing_map[m_id] = entry
+    except Exception as e:
+        print(f"⚠️ Impossible de récupérer la doc officielle Google Pricing ({e}).")
+
+    return pricing_map
+
+
+def resolve_model_pricing(
+    short_id: str,
+    pricing_map: dict[str, dict[str, float]],
+    existing_card: dict | None = None,
+) -> dict[str, float | None]:
+    """Résout le tarif d'un modèle via OpenRouter/Google Docs avec gestion des alias."""
+    # 1. Correspondance directe
+    if short_id in pricing_map:
+        return pricing_map[short_id]
+
+    # 2. Alias génériques '-latest'
+    alias_targets = {
+        "gemini-flash-latest": ["gemini-3.8-flash", "gemini-2.5-flash"],
+        "gemini-pro-latest": ["gemini-3.1-pro-preview", "gemini-2.5-pro"],
+        "gemini-flash-lite-latest": ["gemini-3.5-flash-lite", "gemini-2.5-flash-lite"],
+        "gemini-2.5-flash-native-audio-latest": [
+            "gemini-2.5-flash-native-audio-preview-12-2025",
+            "gemini-2.5-flash",
+        ],
+    }
+    if short_id in alias_targets:
+        for target in alias_targets[short_id]:
+            if target in pricing_map:
+                return pricing_map[target]
+
+    # 3. Normalisation des suffixes (-preview, -customtools, dates -MM-YYYY)
+    candidates = [
+        short_id.removesuffix("-preview"),
+        f"{short_id}-preview",
+        short_id.removesuffix("-customtools"),
+        re.sub(r"-(\d{2}-\d{4}|\d{4}-\d{2})$", "", short_id),
+        re.sub(r"-preview-(\d{2}-\d{4}|\d{4}-\d{2})$", "", short_id),
+        re.sub(r"-preview-(\d{2}-\d{4}|\d{4}-\d{2})$", "-preview", short_id),
+    ]
+    for cand in candidates:
+        if cand != short_id and cand in pricing_map:
+            return pricing_map[cand]
+
+    # 4. Modèles open-source Gemma ou AQA gratuits sur Google AI Studio
+    if "gemma" in short_id.lower() or short_id == "aqa":
+        return {"input_per_1m": 0.0, "output_per_1m": 0.0}
+
+    # 5. Préservation de l'ancien tarif connu s'il existait déjà dans le JSON
+    if existing_card and isinstance(existing_card.get("pricing"), dict):
+        return existing_card["pricing"]
+
+    return {"input_per_1m": None, "output_per_1m": None}
+
+
+def build_v2_model_card(
+    live_model,
+    existing_card: dict = None,
+    pricing_map: dict[str, dict[str, float]] | None = None,
+) -> dict:
     """Construit une fiche V2 pour un modèle en fusionnant live API et annotations existantes."""
     full_id = live_model.name
     short_id = live_model.name.replace("models/", "")
@@ -499,6 +669,7 @@ def build_v2_model_card(live_model, existing_card: dict = None) -> dict:
         }
 
     family = "gemma" if "gemma" in short_id.lower() else "gemini"
+    pricing = resolve_model_pricing(short_id, pricing_map or {}, existing_card)
 
     return {
         "id": short_id,
@@ -517,6 +688,7 @@ def build_v2_model_card(live_model, existing_card: dict = None) -> dict:
             "max_output_tokens": max_output_tokens,
             "default_temperature": temperature if temperature is not None else 1.0,
         },
+        "pricing": pricing,
         "features": features,
         "supported_actions": supported_actions,
         "rank": 999,
@@ -542,17 +714,24 @@ def main():
     # 1. Charger les données existantes pour préserver descriptions, catégories et quick_picks
     existing_models, quick_picks = load_existing_registry(json_path)
 
-    # 2. Récupérer les modèles depuis l'API Google GenAI
+    # 2. Récupérer les modèles depuis l'API Google GenAI et les tarifs depuis OpenRouter / Google Docs
     live_models = []
+    pricing_map: dict[str, dict[str, float]] = {}
     if not args.force_offline:
+        pricing_map.update(fetch_google_docs_pricing())
+        pricing_map.update(fetch_openrouter_pricing("google/"))
+
         api_key = API_KEY or os.getenv("GEMINI_API_KEY")
         if not api_key:
             print(
                 "⚠️ Aucune clé GEMINI_API_KEY trouvée dans l'environnement ni dans le .env."
             )
-            api_key = input(
-                "👉 Entrez votre clé API Gemini (ou appuyez sur Entrée pour mode local) : "
-            ).strip()
+            try:
+                api_key = input(
+                    "👉 Entrez votre clé API Gemini (ou appuyez sur Entrée pour mode local) : "
+                ).strip()
+            except EOFError:
+                api_key = ""
 
         if api_key:
             try:
@@ -575,12 +754,13 @@ def main():
         for lm in live_models:
             short_id = lm.name.replace("models/", "")
             ex_card = existing_models.get(short_id) or existing_models.get(lm.name)
-            card = build_v2_model_card(lm, ex_card)
+            card = build_v2_model_card(lm, ex_card, pricing_map)
             processed_models[short_id] = card
     else:
         for m_id, m_data in existing_models.items():
             if m_id.startswith("models/"):
                 continue
+            m_data["pricing"] = resolve_model_pricing(m_id, pricing_map, m_data)
             processed_models[m_id] = m_data
 
     if not processed_models:

@@ -1,0 +1,147 @@
+services:
+  ai-registry-updater:
+    image: ghcr.io/astral-sh/uv:python3.14-bookworm
+    container_name: ai-registry-updater
+    restart: unless-stopped
+    working_dir: /workspace
+    env_file:
+      - .env
+    environment:
+      - GIT_USER_NAME=${GIT_USER_NAME:-Ph4nt0m1882}
+      - GIT_USER_EMAIL=${GIT_USER_EMAIL:-aymeric.ts@gmail.com}
+      - UPDATE_INTERVAL=${UPDATE_INTERVAL:-86400}
+    volumes:
+      - .:/workspace
+      - uv_cache:/root/.cache/uv
+    entrypoint:
+      - /bin/sh
+      - -c
+      - |
+        git config --global --add safe.directory /workspace
+        git config user.name "$${GIT_USER_NAME}"
+        git config user.email "$${GIT_USER_EMAIL}"
+
+        if [ -n "$${GITHUB_TOKEN}" ]; then
+          git config credential.helper '!f() { echo "username=x-access-token"; echo "password=$${GITHUB_TOKEN}"; }; f'
+        fi
+
+        while true; do
+          echo "[$$(date -Iseconds)] Checking remote branch state..."
+          BRANCH=$$(git rev-parse --abbrev-ref HEAD)
+          git fetch origin "$${BRANCH}"
+
+          LOCAL_HASH=$$(git rev-parse HEAD)
+          REMOTE_HASH=$$(git rev-parse "origin/$${BRANCH}")
+
+          if [ "$${LOCAL_HASH}" != "$${REMOTE_HASH}" ]; then
+            echo "[$$(date -Iseconds)] New commits found on origin/$${BRANCH} ($${LOCAL_HASH} -> $${REMOTE_HASH}). Pulling latest scripts..."
+            git reset --hard "origin/$${BRANCH}"
+            uv sync
+          else
+            echo "[$$(date -Iseconds)] Branch $${BRANCH} is already up to date."
+          fi
+
+          echo "[$$(date -Iseconds)] Running registry getter scripts..."
+          for script in */getter_*.py; do
+            if [ -f "$${script}" ]; then
+              echo "[$$(date -Iseconds)] Executing $${script}..."
+              uv run "$${script}"
+            fi
+          done
+
+          python3 - << 'PYEOF'
+        import json
+        import pathlib
+        import subprocess
+
+        provider_blocks = []
+
+        for json_path in sorted(pathlib.Path(".").glob("*/*.json")):
+            rel_path = json_path.as_posix()
+            provider_name = json_path.parent.name
+
+            try:
+                new_data = json.loads(json_path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+
+            res = subprocess.run(
+                ["git", "show", f"HEAD:{rel_path}"],
+                capture_output=True,
+                text=True,
+            )
+            if res.returncode == 0:
+                try:
+                    old_data = json.loads(res.stdout)
+                except Exception:
+                    old_data = {}
+            else:
+                old_data = {}
+
+            old_models = (
+                old_data.get("models", {})
+                if isinstance(old_data.get("models"), dict)
+                else {}
+            )
+            new_models = (
+                new_data.get("models", {})
+                if isinstance(new_data.get("models"), dict)
+                else {}
+            )
+
+            removed = [m for m in old_models if m not in new_models]
+            added = [m for m in new_models if m not in old_models]
+
+            prices_updated = False
+            other_updated = False
+            for m_id, new_card in new_models.items():
+                if m_id not in old_models:
+                    continue
+                old_card = old_models[m_id]
+                if old_card.get("pricing") != new_card.get("pricing"):
+                    prices_updated = True
+                old_copy = {k: v for k, v in old_card.items() if k != "pricing"}
+                new_copy = {k: v for k, v in new_card.items() if k != "pricing"}
+                if old_copy != new_copy:
+                    other_updated = True
+
+            lines = []
+            if removed:
+                lines.append(f"        REMOVE: {', '.join(removed)}")
+            if added:
+                lines.append(f"        ADD: {', '.join(added)}")
+            if prices_updated:
+                lines.append("        updates prices")
+            if other_updated and not (removed or added or prices_updated):
+                lines.append("        updates metadata")
+
+            if lines:
+                provider_blocks.append(f"    {provider_name}:\n" + "\n".join(lines))
+                subprocess.run(["git", "add", rel_path], check=True)
+            else:
+                subprocess.run(["git", "checkout", "--", rel_path], capture_output=True)
+
+        msg_file = pathlib.Path("/tmp/commit_msg.txt")
+        if provider_blocks:
+            commit_msg = "Chore(registry):\n" + "\n".join(provider_blocks)
+            msg_file.write_text(commit_msg, encoding="utf-8")
+            print(commit_msg)
+        elif msg_file.exists():
+            msg_file.unlink()
+        PYEOF
+
+          if [ -f /tmp/commit_msg.txt ]; then
+            git commit -F /tmp/commit_msg.txt
+            rm -f /tmp/commit_msg.txt
+            git push origin "$${BRANCH}"
+            echo "[$$(date -Iseconds)] Changes committed and pushed to origin/$${BRANCH}."
+          else
+            echo "[$$(date -Iseconds)] No model or pricing changes detected."
+          fi
+
+          echo "[$$(date -Iseconds)] Sleeping for $${UPDATE_INTERVAL}s..."
+          sleep "$${UPDATE_INTERVAL}"
+        done
+
+volumes:
+  uv_cache:
