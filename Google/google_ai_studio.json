@@ -2,7 +2,7 @@
   "schema_version": "2.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-10-23T18:55:17.770245",
+  "updated_at": "2026-10-24T18:55:23.038654",
   "total_models": 60,
   "tasks_summary": {
     "realtime-multimodal": 8,
@@ -2340,8 +2340,8 @@
         "default_temperature": 1.0
       },
       "pricing": {
-        "input_per_1m": 0.09,
-        "output_per_1m": 0.3
+        "input_per_1m": 0.0675,
+        "output_per_1m": 0.225
       },
       "features": {
         "thinking": true,
@@ -3120,7 +3120,7 @@
     "deep-research-pro-preview-12-2025": {
       "id": "deep-research-pro-preview-12-2025",
       "full_id": "models/deep-research-pro-preview-12-2025",
-      "display_name": "Deep Research Pro Preview (Dec-12-2025)",
+      "display_name": "Deep Research Pro Preview (Dec-12-2025) [Rerouted]",
       "family": "gemini",
       "category": "research",
       "tier": "legacy",
