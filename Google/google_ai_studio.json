@@ -2,7 +2,7 @@
   "schema_version": "2.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-11-06T18:56:30.745764",
+  "updated_at": "2026-11-07T18:56:37.508148",
   "total_models": 61,
   "tasks_summary": {
     "realtime-multimodal": 8,
@@ -2390,8 +2390,8 @@
         "default_temperature": 1.0
       },
       "pricing": {
-        "input_per_1m": 0.09,
-        "output_per_1m": 0.3
+        "input_per_1m": 0.0675,
+        "output_per_1m": 0.225
       },
       "features": {
         "thinking": true,
