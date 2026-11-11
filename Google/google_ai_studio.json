@@ -2,11 +2,11 @@
   "schema_version": "2.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-11-10T18:56:50.801647",
-  "total_models": 62,
+  "updated_at": "2026-11-11T18:56:56.237866",
+  "total_models": 63,
   "tasks_summary": {
     "realtime-multimodal": 8,
-    "text-generation": 22,
+    "text-generation": 23,
     "text-to-speech": 5,
     "text-to-image": 8,
     "text-to-music": 4,
@@ -2410,6 +2410,55 @@
       ],
       "rank": 45
     },
+    "gemini-decision-1": {
+      "id": "gemini-decision-1",
+      "full_id": "models/gemini-decision-1",
+      "display_name": "Gemini Decision 1",
+      "family": "gemini",
+      "category": "general",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "en": "Gemini Decision 1"
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 262144,
+        "max_output_tokens": 1,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": null,
+        "output_per_1m": null
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": false,
+        "structured_outputs": false,
+        "system_instruction": false,
+        "caching": false,
+        "streaming": false
+      },
+      "supported_actions": [
+        "createDecision"
+      ],
+      "rank": 46
+    },
     "gemma-4-26b-a4b-it": {
       "id": "gemma-4-26b-a4b-it",
       "full_id": "models/gemma-4-26b-a4b-it",
@@ -2456,7 +2505,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 46
+      "rank": 47
     },
     "antigravity-preview-latest": {
       "id": "antigravity-preview-latest",
@@ -2504,7 +2553,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 47
+      "rank": 48
     },
     "gemini-3.1-pro-preview-customtools": {
       "id": "gemini-3.1-pro-preview-customtools",
@@ -2557,7 +2606,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 48
+      "rank": 49
     },
     "gemini-2.5-computer-use-preview-10-2025": {
       "id": "gemini-2.5-computer-use-preview-10-2025",
@@ -2606,7 +2655,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 49
+      "rank": 50
     },
     "gemini-robotics-er-2-preview": {
       "id": "gemini-robotics-er-2-preview",
@@ -2657,7 +2706,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 50
+      "rank": 51
     },
     "aqa": {
       "id": "aqa",
@@ -2704,7 +2753,7 @@
       "supported_actions": [
         "generateAnswer"
       ],
-      "rank": 51
+      "rank": 52
     },
     "gemini-3-flash-preview": {
       "id": "gemini-3-flash-preview",
@@ -2757,7 +2806,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 52
+      "rank": 53
     },
     "gemini-2.5-flash-native-audio-preview-12-2025": {
       "id": "gemini-2.5-flash-native-audio-preview-12-2025",
@@ -2808,7 +2857,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 53
+      "rank": 54
     },
     "gemini-2.5-flash-native-audio-preview-09-2025": {
       "id": "gemini-2.5-flash-native-audio-preview-09-2025",
@@ -2859,7 +2908,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 54
+      "rank": 55
     },
     "gemini-2.5-flash-native-audio-latest": {
       "id": "gemini-2.5-flash-native-audio-latest",
@@ -2910,7 +2959,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 55
+      "rank": 56
     },
     "gemini-2.5-pro-preview-tts": {
       "id": "gemini-2.5-pro-preview-tts",
@@ -2959,7 +3008,7 @@
         "generateContent",
         "batchGenerateContent"
       ],
-      "rank": 56
+      "rank": 57
     },
     "gemini-2.5-pro": {
       "id": "gemini-2.5-pro",
@@ -3012,7 +3061,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 57
+      "rank": 58
     },
     "gemini-2.5-flash-preview-tts": {
       "id": "gemini-2.5-flash-preview-tts",
@@ -3060,7 +3109,7 @@
         "countTokens",
         "generateContent"
       ],
-      "rank": 58
+      "rank": 59
     },
     "gemini-2.5-flash-lite": {
       "id": "gemini-2.5-flash-lite",
@@ -3113,7 +3162,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 59
+      "rank": 60
     },
     "gemini-2.5-flash-image": {
       "id": "gemini-2.5-flash-image",
@@ -3163,7 +3212,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 60
+      "rank": 61
     },
     "gemini-2.5-flash": {
       "id": "gemini-2.5-flash",
@@ -3216,7 +3265,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 61
+      "rank": 62
     },
     "deep-research-pro-preview-12-2025": {
       "id": "deep-research-pro-preview-12-2025",
@@ -3265,7 +3314,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 62
+      "rank": 63
     }
   }
 }
