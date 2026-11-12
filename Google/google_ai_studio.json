@@ -2,11 +2,11 @@
   "schema_version": "2.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-11-11T18:56:56.237866",
-  "total_models": 63,
+  "updated_at": "2026-11-12T18:57:01.543902",
+  "total_models": 64,
   "tasks_summary": {
     "realtime-multimodal": 8,
-    "text-generation": 23,
+    "text-generation": 24,
     "text-to-speech": 5,
     "text-to-image": 8,
     "text-to-music": 4,
@@ -691,6 +691,57 @@
       ],
       "rank": 11
     },
+    "gemini-4-hydrogen": {
+      "id": "gemini-4-hydrogen",
+      "full_id": "models/gemini-4-hydrogen",
+      "display_name": "Gemini 4 Hydrogen",
+      "family": "gemini",
+      "category": "general",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "en": "Gemini 4 Hydrogen"
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 1.5,
+        "output_per_1m": 7.5
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "batchGenerateContent"
+      ],
+      "rank": 12
+    },
     "gemini-4-carbon": {
       "id": "gemini-4-carbon",
       "full_id": "models/gemini-4-carbon",
@@ -740,7 +791,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 12
+      "rank": 13
     },
     "gemini-4-argon": {
       "id": "gemini-4-argon",
@@ -791,7 +842,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 13
+      "rank": 14
     },
     "gemini-3.8-live-extended-thinking": {
       "id": "gemini-3.8-live-extended-thinking",
@@ -841,7 +892,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 14
+      "rank": 15
     },
     "gemini-3.8-flash-tts": {
       "id": "gemini-3.8-flash-tts",
@@ -889,7 +940,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 15
+      "rank": 16
     },
     "gemini-3.8-flash-lite-tts": {
       "id": "gemini-3.8-flash-lite-tts",
@@ -937,7 +988,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 16
+      "rank": 17
     },
     "gemini-3.6-flash": {
       "id": "gemini-3.6-flash",
@@ -990,7 +1041,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 17
+      "rank": 18
     },
     "lyria-3.5": {
       "id": "lyria-3.5",
@@ -1039,7 +1090,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 18
+      "rank": 19
     },
     "gemini-3.5-transcribe-live": {
       "id": "gemini-3.5-transcribe-live",
@@ -1089,7 +1140,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 19
+      "rank": 20
     },
     "gemini-3.5-transcribe": {
       "id": "gemini-3.5-transcribe",
@@ -1137,7 +1188,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 20
+      "rank": 21
     },
     "gemini-3.5-live-translate-preview": {
       "id": "gemini-3.5-live-translate-preview",
@@ -1187,7 +1238,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 21
+      "rank": 22
     },
     "gemini-3.5-flash": {
       "id": "gemini-3.5-flash",
@@ -1240,7 +1291,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 22
+      "rank": 23
     },
     "gemini-3.1-flash-live-preview": {
       "id": "gemini-3.1-flash-live-preview",
@@ -1290,7 +1341,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 23
+      "rank": 24
     },
     "gemini-3.1-flash-lite-preview": {
       "id": "gemini-3.1-flash-lite-preview",
@@ -1343,7 +1394,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 24
+      "rank": 25
     },
     "gemini-3.1-flash-lite-image": {
       "id": "gemini-3.1-flash-lite-image",
@@ -1393,7 +1444,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 25
+      "rank": 26
     },
     "gemini-3.1-flash-lite": {
       "id": "gemini-3.1-flash-lite",
@@ -1446,7 +1497,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 26
+      "rank": 27
     },
     "gemini-3.1-flash-image-preview": {
       "id": "gemini-3.1-flash-image-preview",
@@ -1496,7 +1547,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 27
+      "rank": 28
     },
     "lyria-3-clip-preview": {
       "id": "lyria-3-clip-preview",
@@ -1545,7 +1596,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 28
+      "rank": 29
     },
     "gemini-3-pro-image-preview": {
       "id": "gemini-3-pro-image-preview",
@@ -1595,7 +1646,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 29
+      "rank": 30
     },
     "gemini-3-pro-image": {
       "id": "gemini-3-pro-image",
@@ -1645,7 +1696,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 30
+      "rank": 31
     },
     "gemini-nano-banana-2.1": {
       "id": "gemini-nano-banana-2.1",
@@ -1694,7 +1745,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 31
+      "rank": 32
     },
     "gemini-embedding-2-preview": {
       "id": "gemini-embedding-2-preview",
@@ -1747,7 +1798,7 @@
         "countTokens",
         "asyncBatchEmbedContent"
       ],
-      "rank": 32
+      "rank": 33
     },
     "gemini-embedding-2": {
       "id": "gemini-embedding-2",
@@ -1800,7 +1851,7 @@
         "countTokens",
         "asyncBatchEmbedContent"
       ],
-      "rank": 33
+      "rank": 34
     },
     "gemini-omni-1.2-flash": {
       "id": "gemini-omni-1.2-flash",
@@ -1850,7 +1901,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 34
+      "rank": 35
     },
     "gemini-omni-1.1-flash": {
       "id": "gemini-omni-1.1-flash",
@@ -1902,7 +1953,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 35
+      "rank": 36
     },
     "antigravity-preview-09-2026": {
       "id": "antigravity-preview-09-2026",
@@ -1951,7 +2002,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 36
+      "rank": 37
     },
     "antigravity-preview-05-2026": {
       "id": "antigravity-preview-05-2026",
@@ -2000,7 +2051,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 37
+      "rank": 38
     },
     "deep-research-preview-04-2026": {
       "id": "deep-research-preview-04-2026",
@@ -2049,7 +2100,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 38
+      "rank": 39
     },
     "gemini-pro-latest": {
       "id": "gemini-pro-latest",
@@ -2102,7 +2153,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 39
+      "rank": 40
     },
     "gemini-flash-lite-latest": {
       "id": "gemini-flash-lite-latest",
@@ -2155,7 +2206,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 40
+      "rank": 41
     },
     "gemini-flash-latest": {
       "id": "gemini-flash-latest",
@@ -2208,7 +2259,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 41
+      "rank": 42
     },
     "nano-banana-pro-preview": {
       "id": "nano-banana-pro-preview",
@@ -2258,7 +2309,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 42
+      "rank": 43
     },
     "lyria-realtime-exp": {
       "id": "lyria-realtime-exp",
@@ -2306,7 +2357,7 @@
       "supported_actions": [
         "bidiGenerateMusic"
       ],
-      "rank": 43
+      "rank": 44
     },
     "gemini-omni-flash-preview": {
       "id": "gemini-omni-flash-preview",
@@ -2358,7 +2409,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 44
+      "rank": 45
     },
     "gemini-embedding-001": {
       "id": "gemini-embedding-001",
@@ -2408,7 +2459,7 @@
         "countTokens",
         "asyncBatchEmbedContent"
       ],
-      "rank": 45
+      "rank": 46
     },
     "gemini-decision-1": {
       "id": "gemini-decision-1",
@@ -2457,7 +2508,7 @@
       "supported_actions": [
         "createDecision"
       ],
-      "rank": 46
+      "rank": 47
     },
     "gemma-4-26b-a4b-it": {
       "id": "gemma-4-26b-a4b-it",
@@ -2490,8 +2541,8 @@
         "default_temperature": 1.0
       },
       "pricing": {
-        "input_per_1m": 0.08,
-        "output_per_1m": 0.1
+        "input_per_1m": 0.09,
+        "output_per_1m": 0.28
       },
       "features": {
         "thinking": true,
@@ -2505,7 +2556,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 47
+      "rank": 48
     },
     "antigravity-preview-latest": {
       "id": "antigravity-preview-latest",
@@ -2553,7 +2604,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 48
+      "rank": 49
     },
     "gemini-3.1-pro-preview-customtools": {
       "id": "gemini-3.1-pro-preview-customtools",
@@ -2606,7 +2657,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 49
+      "rank": 50
     },
     "gemini-2.5-computer-use-preview-10-2025": {
       "id": "gemini-2.5-computer-use-preview-10-2025",
@@ -2655,7 +2706,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 50
+      "rank": 51
     },
     "gemini-robotics-er-2-preview": {
       "id": "gemini-robotics-er-2-preview",
@@ -2706,7 +2757,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 51
+      "rank": 52
     },
     "aqa": {
       "id": "aqa",
@@ -2753,7 +2804,7 @@
       "supported_actions": [
         "generateAnswer"
       ],
-      "rank": 52
+      "rank": 53
     },
     "gemini-3-flash-preview": {
       "id": "gemini-3-flash-preview",
@@ -2806,7 +2857,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 53
+      "rank": 54
     },
     "gemini-2.5-flash-native-audio-preview-12-2025": {
       "id": "gemini-2.5-flash-native-audio-preview-12-2025",
@@ -2857,7 +2908,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 54
+      "rank": 55
     },
     "gemini-2.5-flash-native-audio-preview-09-2025": {
       "id": "gemini-2.5-flash-native-audio-preview-09-2025",
@@ -2908,7 +2959,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 55
+      "rank": 56
     },
     "gemini-2.5-flash-native-audio-latest": {
       "id": "gemini-2.5-flash-native-audio-latest",
@@ -2959,7 +3010,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 56
+      "rank": 57
     },
     "gemini-2.5-pro-preview-tts": {
       "id": "gemini-2.5-pro-preview-tts",
@@ -3008,7 +3059,7 @@
         "generateContent",
         "batchGenerateContent"
       ],
-      "rank": 57
+      "rank": 58
     },
     "gemini-2.5-pro": {
       "id": "gemini-2.5-pro",
@@ -3061,7 +3112,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 58
+      "rank": 59
     },
     "gemini-2.5-flash-preview-tts": {
       "id": "gemini-2.5-flash-preview-tts",
@@ -3109,7 +3160,7 @@
         "countTokens",
         "generateContent"
       ],
-      "rank": 59
+      "rank": 60
     },
     "gemini-2.5-flash-lite": {
       "id": "gemini-2.5-flash-lite",
@@ -3162,7 +3213,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 60
+      "rank": 61
     },
     "gemini-2.5-flash-image": {
       "id": "gemini-2.5-flash-image",
@@ -3212,7 +3263,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 61
+      "rank": 62
     },
     "gemini-2.5-flash": {
       "id": "gemini-2.5-flash",
@@ -3265,7 +3316,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 62
+      "rank": 63
     },
     "deep-research-pro-preview-12-2025": {
       "id": "deep-research-pro-preview-12-2025",
@@ -3314,7 +3365,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 63
+      "rank": 64
     }
   }
 }
