@@ -2,11 +2,11 @@
   "schema_version": "2.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-11-12T18:57:01.543902",
+  "updated_at": "2026-11-13T14:49:43.854594",
   "total_models": 64,
   "tasks_summary": {
-    "realtime-multimodal": 8,
     "text-generation": 24,
+    "realtime-multimodal": 8,
     "text-to-speech": 5,
     "text-to-image": 8,
     "text-to-music": 4,
@@ -19,19 +19,19 @@
   "quick_picks": {
     "text-generation": [
       {
-        "id": "gemini-3.8-flash",
-        "role": "latest",
-        "badge": "latest"
-      },
-      {
-        "id": "gemini-3.7-flash",
-        "role": "fast",
-        "badge": "Flash alternative"
-      },
-      {
-        "id": "gemini-3.1-pro-preview",
+        "id": "gemini-4-argon",
         "role": "pro",
-        "badge": "last Pro"
+        "badge": "Flagship / Reasoning"
+      },
+      {
+        "id": "gemini-4-carbon",
+        "role": "balanced",
+        "badge": "Balanced"
+      },
+      {
+        "id": "gemini-4-hydrogen",
+        "role": "fast",
+        "badge": "Fast & Lite"
       },
       {
         "id": "gemma-4-31b-it",
@@ -134,6 +134,159 @@
     ]
   },
   "models": {
+    "gemini-4-argon": {
+      "id": "gemini-4-argon",
+      "full_id": "models/gemini-4-argon",
+      "display_name": "Gemini 4 Argon",
+      "family": "gemini",
+      "category": "pro",
+      "tier": "featured",
+      "is_recommended": true,
+      "is_open_source": false,
+      "description": {
+        "en": "Gemini 4 Argon"
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 32768,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 2.0,
+        "output_per_1m": 10.0
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "batchGenerateContent"
+      ],
+      "rank": 1
+    },
+    "gemini-4-carbon": {
+      "id": "gemini-4-carbon",
+      "full_id": "models/gemini-4-carbon",
+      "display_name": "Gemini 4 Carbon",
+      "family": "gemini",
+      "category": "flash",
+      "tier": "featured",
+      "is_recommended": true,
+      "is_open_source": false,
+      "description": {
+        "en": "Gemini 4 Carbon"
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 32768,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 2.0,
+        "output_per_1m": 10.0
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "batchGenerateContent"
+      ],
+      "rank": 2
+    },
+    "gemini-4-hydrogen": {
+      "id": "gemini-4-hydrogen",
+      "full_id": "models/gemini-4-hydrogen",
+      "display_name": "Gemini 4 Hydrogen",
+      "family": "gemini",
+      "category": "flash_lite",
+      "tier": "featured",
+      "is_recommended": true,
+      "is_open_source": false,
+      "description": {
+        "en": "Gemini 4 Hydrogen"
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 1.5,
+        "output_per_1m": 7.5
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "batchGenerateContent"
+      ],
+      "rank": 3
+    },
     "gemini-3.8-live": {
       "id": "gemini-3.8-live",
       "full_id": "models/gemini-3.8-live",
@@ -182,7 +335,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 1
+      "rank": 4
     },
     "gemini-3.8-flash": {
       "id": "gemini-3.8-flash",
@@ -191,7 +344,7 @@
       "family": "gemini",
       "category": "flash",
       "tier": "featured",
-      "is_recommended": true,
+      "is_recommended": false,
       "is_open_source": false,
       "description": {
         "fr": "Modèle phare ultra-rapide dernière génération, optimisé pour le chat multimodal, le raisonnement et les flux en temps réel.",
@@ -235,7 +388,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 2
+      "rank": 5
     },
     "gemini-3.7-flash": {
       "id": "gemini-3.7-flash",
@@ -288,14 +441,14 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 3
+      "rank": 6
     },
     "gemini-3.5-flash-lite": {
       "id": "gemini-3.5-flash-lite",
       "full_id": "models/gemini-3.5-flash-lite",
       "display_name": "Gemini 3.5 Flash Lite",
       "family": "gemini",
-      "category": "flash",
+      "category": "flash_lite",
       "tier": "featured",
       "is_recommended": false,
       "is_open_source": false,
@@ -341,7 +494,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 4
+      "rank": 7
     },
     "gemini-3.1-pro-preview": {
       "id": "gemini-3.1-pro-preview",
@@ -394,7 +547,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 5
+      "rank": 8
     },
     "gemini-3.1-flash-tts-preview": {
       "id": "gemini-3.1-flash-tts-preview",
@@ -443,7 +596,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 6
+      "rank": 9
     },
     "gemini-3.1-flash-image": {
       "id": "gemini-3.1-flash-image",
@@ -493,7 +646,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 7
+      "rank": 10
     },
     "lyria-3-pro-preview": {
       "id": "lyria-3-pro-preview",
@@ -542,7 +695,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 8
+      "rank": 11
     },
     "gemini-robotics-er-2-streaming-preview": {
       "id": "gemini-robotics-er-2-streaming-preview",
@@ -592,7 +745,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 9
+      "rank": 12
     },
     "deep-research-max-preview-04-2026": {
       "id": "deep-research-max-preview-04-2026",
@@ -641,7 +794,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 10
+      "rank": 13
     },
     "gemma-4-31b-it": {
       "id": "gemma-4-31b-it",
@@ -674,8 +827,8 @@
         "default_temperature": 1.0
       },
       "pricing": {
-        "input_per_1m": 0.2,
-        "output_per_1m": 0.4
+        "input_per_1m": 0.0,
+        "output_per_1m": 0.0
       },
       "features": {
         "thinking": true,
@@ -688,159 +841,6 @@
       "supported_actions": [
         "generateContent",
         "countTokens"
-      ],
-      "rank": 11
-    },
-    "gemini-4-hydrogen": {
-      "id": "gemini-4-hydrogen",
-      "full_id": "models/gemini-4-hydrogen",
-      "display_name": "Gemini 4 Hydrogen",
-      "family": "gemini",
-      "category": "general",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "en": "Gemini 4 Hydrogen"
-      },
-      "tasks": [
-        "text-generation"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": true
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 1.5,
-        "output_per_1m": 7.5
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens",
-        "batchGenerateContent"
-      ],
-      "rank": 12
-    },
-    "gemini-4-carbon": {
-      "id": "gemini-4-carbon",
-      "full_id": "models/gemini-4-carbon",
-      "display_name": "Gemini 4 Carbon",
-      "family": "gemini",
-      "category": "general",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "en": "Gemini 4 Carbon"
-      },
-      "tasks": [
-        "text-generation"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": true
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 32768,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 2.0,
-        "output_per_1m": 10.0
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens",
-        "batchGenerateContent"
-      ],
-      "rank": 13
-    },
-    "gemini-4-argon": {
-      "id": "gemini-4-argon",
-      "full_id": "models/gemini-4-argon",
-      "display_name": "Gemini 4 Argon",
-      "family": "gemini",
-      "category": "general",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "en": "Gemini 4 Argon"
-      },
-      "tasks": [
-        "text-generation"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": true
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 32768,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 2.0,
-        "output_per_1m": 10.0
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens",
-        "batchGenerateContent"
       ],
       "rank": 14
     },
@@ -899,7 +899,7 @@
       "full_id": "models/gemini-3.8-flash-tts",
       "display_name": "Gemini 3.8 Flash TTS",
       "family": "gemini",
-      "category": "flash",
+      "category": "tts",
       "tier": "standard",
       "is_recommended": false,
       "is_open_source": false,
@@ -947,7 +947,7 @@
       "full_id": "models/gemini-3.8-flash-lite-tts",
       "display_name": "Gemini 3.8 Flash Lite TTS",
       "family": "gemini",
-      "category": "flash_lite",
+      "category": "tts",
       "tier": "standard",
       "is_recommended": false,
       "is_open_source": false,
@@ -1043,203 +1043,6 @@
       ],
       "rank": 18
     },
-    "lyria-3.5": {
-      "id": "lyria-3.5",
-      "full_id": "models/lyria-3.5",
-      "display_name": "Lyria 3.5",
-      "family": "gemini",
-      "category": "music",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Modèle avancé de composition musicale générative par Google DeepMind (mélodie, harmonie et instrumentation).",
-        "en": "Advanced generative music composition model by Google DeepMind (melody, harmony, and instrumentation)."
-      },
-      "tasks": [
-        "text-to-music"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "audio"
-        ],
-        "output": [
-          "audio"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": null,
-        "output_per_1m": null
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": false,
-        "structured_outputs": false,
-        "system_instruction": false,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens"
-      ],
-      "rank": 19
-    },
-    "gemini-3.5-transcribe-live": {
-      "id": "gemini-3.5-transcribe-live",
-      "full_id": "models/gemini-3.5-transcribe-live",
-      "display_name": "Gemini 3.5 Transcribe Live",
-      "family": "gemini",
-      "category": "transcribe",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Transcription vocale continue en direct avec latence ultra-faible.",
-        "en": "Continuous live speech transcription with ultra-low latency."
-      },
-      "tasks": [
-        "realtime-multimodal"
-      ],
-      "modalities": {
-        "input": [
-          "audio",
-          "text",
-          "video"
-        ],
-        "output": [
-          "audio",
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 131072,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 3.5,
-        "output_per_1m": 21.0
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": false,
-        "structured_outputs": false,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "bidiGenerateContent"
-      ],
-      "rank": 20
-    },
-    "gemini-3.5-transcribe": {
-      "id": "gemini-3.5-transcribe",
-      "full_id": "models/gemini-3.5-transcribe",
-      "display_name": "Gemini 3.5 Transcribe",
-      "family": "gemini",
-      "category": "stt",
-      "tier": "standard",
-      "is_recommended": true,
-      "is_open_source": false,
-      "description": {
-        "fr": "Transcription audio multilingue haute précision avec détection des locuteurs et horodatage.",
-        "en": "High-accuracy multilingual audio transcription with speaker diarization and timestamps."
-      },
-      "tasks": [
-        "speech-to-text"
-      ],
-      "modalities": {
-        "input": [
-          "audio"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 98304,
-        "max_output_tokens": 32768,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 2.0,
-        "output_per_1m": 12.0
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": false,
-        "structured_outputs": false,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens"
-      ],
-      "rank": 21
-    },
-    "gemini-3.5-live-translate-preview": {
-      "id": "gemini-3.5-live-translate-preview",
-      "full_id": "models/gemini-3.5-live-translate-preview",
-      "display_name": "Gemini 3.5 Live Translate Preview",
-      "family": "gemini",
-      "category": "translate",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Traduction vocale instantanée en direct entre multiples langues avec préservation du timbre.",
-        "en": "Instantaneous live speech-to-speech translation preserving speaker timbre across languages."
-      },
-      "tasks": [
-        "realtime-multimodal"
-      ],
-      "modalities": {
-        "input": [
-          "audio",
-          "text",
-          "video"
-        ],
-        "output": [
-          "audio",
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 16384,
-        "max_output_tokens": 32768,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 3.5,
-        "output_per_1m": 21.0
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "bidiGenerateContent"
-      ],
-      "rank": 22
-    },
     "gemini-3.5-flash": {
       "id": "gemini-3.5-flash",
       "full_id": "models/gemini-3.5-flash",
@@ -1290,6 +1093,203 @@
         "countTokens",
         "createCachedContent",
         "batchGenerateContent"
+      ],
+      "rank": 19
+    },
+    "lyria-3.5": {
+      "id": "lyria-3.5",
+      "full_id": "models/lyria-3.5",
+      "display_name": "Lyria 3.5",
+      "family": "gemini",
+      "category": "music",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Modèle avancé de composition musicale générative par Google DeepMind (mélodie, harmonie et instrumentation).",
+        "en": "Advanced generative music composition model by Google DeepMind (melody, harmony, and instrumentation)."
+      },
+      "tasks": [
+        "text-to-music"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "audio"
+        ],
+        "output": [
+          "audio"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": null,
+        "output_per_1m": null
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": false,
+        "structured_outputs": false,
+        "system_instruction": false,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens"
+      ],
+      "rank": 20
+    },
+    "gemini-3.5-transcribe-live": {
+      "id": "gemini-3.5-transcribe-live",
+      "full_id": "models/gemini-3.5-transcribe-live",
+      "display_name": "Gemini 3.5 Transcribe Live",
+      "family": "gemini",
+      "category": "transcribe",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Transcription vocale continue en direct avec latence ultra-faible.",
+        "en": "Continuous live speech transcription with ultra-low latency."
+      },
+      "tasks": [
+        "realtime-multimodal"
+      ],
+      "modalities": {
+        "input": [
+          "audio",
+          "text",
+          "video"
+        ],
+        "output": [
+          "audio",
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 131072,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 3.5,
+        "output_per_1m": 21.0
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": false,
+        "structured_outputs": false,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "bidiGenerateContent"
+      ],
+      "rank": 21
+    },
+    "gemini-3.5-transcribe": {
+      "id": "gemini-3.5-transcribe",
+      "full_id": "models/gemini-3.5-transcribe",
+      "display_name": "Gemini 3.5 Transcribe",
+      "family": "gemini",
+      "category": "stt",
+      "tier": "standard",
+      "is_recommended": true,
+      "is_open_source": false,
+      "description": {
+        "fr": "Transcription audio multilingue haute précision avec détection des locuteurs et horodatage.",
+        "en": "High-accuracy multilingual audio transcription with speaker diarization and timestamps."
+      },
+      "tasks": [
+        "speech-to-text"
+      ],
+      "modalities": {
+        "input": [
+          "audio"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 98304,
+        "max_output_tokens": 32768,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 2.0,
+        "output_per_1m": 12.0
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": false,
+        "structured_outputs": false,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens"
+      ],
+      "rank": 22
+    },
+    "gemini-3.5-live-translate-preview": {
+      "id": "gemini-3.5-live-translate-preview",
+      "full_id": "models/gemini-3.5-live-translate-preview",
+      "display_name": "Gemini 3.5 Live Translate Preview",
+      "family": "gemini",
+      "category": "translate",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Traduction vocale instantanée en direct entre multiples langues avec préservation du timbre.",
+        "en": "Instantaneous live speech-to-speech translation preserving speaker timbre across languages."
+      },
+      "tasks": [
+        "realtime-multimodal"
+      ],
+      "modalities": {
+        "input": [
+          "audio",
+          "text",
+          "video"
+        ],
+        "output": [
+          "audio",
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 16384,
+        "max_output_tokens": 32768,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 3.5,
+        "output_per_1m": 21.0
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "bidiGenerateContent"
       ],
       "rank": 23
     },
@@ -1348,7 +1348,7 @@
       "full_id": "models/gemini-3.1-flash-lite-preview",
       "display_name": "Gemini 3.1 Flash Lite Preview",
       "family": "gemini",
-      "category": "flash",
+      "category": "flash_lite",
       "tier": "standard",
       "is_recommended": false,
       "is_open_source": false,
@@ -1396,6 +1396,59 @@
       ],
       "rank": 25
     },
+    "gemini-3.1-flash-lite": {
+      "id": "gemini-3.1-flash-lite",
+      "full_id": "models/gemini-3.1-flash-lite",
+      "display_name": "Gemini 3.1 Flash Lite",
+      "family": "gemini",
+      "category": "flash_lite",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Modèle économique à latence très réduite pour les micro-tâches textuelles et l'extraction d'informations.",
+        "en": "Cost-effective model with reduced latency for textual micro-tasks and information extraction."
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 0.25,
+        "output_per_1m": 1.5
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": true,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "createCachedContent",
+        "batchGenerateContent"
+      ],
+      "rank": 26
+    },
     "gemini-3.1-flash-lite-image": {
       "id": "gemini-3.1-flash-lite-image",
       "full_id": "models/gemini-3.1-flash-lite-image",
@@ -1442,59 +1495,6 @@
       "supported_actions": [
         "generateContent",
         "countTokens",
-        "batchGenerateContent"
-      ],
-      "rank": 26
-    },
-    "gemini-3.1-flash-lite": {
-      "id": "gemini-3.1-flash-lite",
-      "full_id": "models/gemini-3.1-flash-lite",
-      "display_name": "Gemini 3.1 Flash Lite",
-      "family": "gemini",
-      "category": "flash",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Modèle économique à latence très réduite pour les micro-tâches textuelles et l'extraction d'informations.",
-        "en": "Cost-effective model with reduced latency for textual micro-tasks and information extraction."
-      },
-      "tasks": [
-        "text-generation"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": true
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 0.25,
-        "output_per_1m": 1.5
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": true,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens",
-        "createCachedContent",
         "batchGenerateContent"
       ],
       "rank": 27
@@ -1703,7 +1703,7 @@
       "full_id": "models/gemini-nano-banana-2.1",
       "display_name": "Nano Banana 2.1",
       "family": "gemini",
-      "category": "general",
+      "category": "image_gen",
       "tier": "standard",
       "is_recommended": false,
       "is_open_source": false,
@@ -1955,153 +1955,6 @@
       ],
       "rank": 36
     },
-    "antigravity-preview-09-2026": {
-      "id": "antigravity-preview-09-2026",
-      "full_id": "models/antigravity-preview-09-2026",
-      "display_name": "Antigravity Agent Preview",
-      "family": "gemini",
-      "category": "agent",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Modèle d'agent autonome avancé pour la planification multi-tâches et l'orchestration de code.",
-        "en": "Advanced autonomous agent model designed for multi-step planning and code orchestration."
-      },
-      "tasks": [
-        "deep-research"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": null,
-        "output_per_1m": null
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens"
-      ],
-      "rank": 37
-    },
-    "antigravity-preview-05-2026": {
-      "id": "antigravity-preview-05-2026",
-      "full_id": "models/antigravity-preview-05-2026",
-      "display_name": "Antigravity Agent Preview",
-      "family": "gemini",
-      "category": "agent",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Preview du moteur agentique Antigravity pour l'exécution d'outils et de workflows autonomes.",
-        "en": "Preview of the Antigravity agentic engine for tool execution and autonomous workflows."
-      },
-      "tasks": [
-        "deep-research"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": null,
-        "output_per_1m": null
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens"
-      ],
-      "rank": 38
-    },
-    "deep-research-preview-04-2026": {
-      "id": "deep-research-preview-04-2026",
-      "full_id": "models/deep-research-preview-04-2026",
-      "display_name": "Deep Research Preview (Apr-21-2026)",
-      "family": "gemini",
-      "category": "research",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Agent de recherche web itérative et d'analyse documentaire multi-étapes.",
-        "en": "Iterative web research agent specialized in multi-step documentary analysis."
-      },
-      "tasks": [
-        "deep-research"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": null,
-        "output_per_1m": null
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens"
-      ],
-      "rank": 39
-    },
     "gemini-pro-latest": {
       "id": "gemini-pro-latest",
       "full_id": "models/gemini-pro-latest",
@@ -2153,60 +2006,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 40
-    },
-    "gemini-flash-lite-latest": {
-      "id": "gemini-flash-lite-latest",
-      "full_id": "models/gemini-flash-lite-latest",
-      "display_name": "Gemini Flash-Lite Latest",
-      "family": "gemini",
-      "category": "flash",
-      "tier": "standard",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Pointeur dynamique vers la dernière version stable de Gemini Flash-Lite.",
-        "en": "Dynamic alias pointing to the latest stable release of Gemini Flash-Lite."
-      },
-      "tasks": [
-        "text-generation"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": true
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 0.3,
-        "output_per_1m": 2.5
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": true,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens",
-        "createCachedContent",
-        "batchGenerateContent"
-      ],
-      "rank": 41
+      "rank": 37
     },
     "gemini-flash-latest": {
       "id": "gemini-flash-latest",
@@ -2258,6 +2058,206 @@
         "countTokens",
         "createCachedContent",
         "batchGenerateContent"
+      ],
+      "rank": 38
+    },
+    "gemini-flash-lite-latest": {
+      "id": "gemini-flash-lite-latest",
+      "full_id": "models/gemini-flash-lite-latest",
+      "display_name": "Gemini Flash-Lite Latest",
+      "family": "gemini",
+      "category": "flash_lite",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Pointeur dynamique vers la dernière version stable de Gemini Flash-Lite.",
+        "en": "Dynamic alias pointing to the latest stable release of Gemini Flash-Lite."
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 0.3,
+        "output_per_1m": 2.5
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": true,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "createCachedContent",
+        "batchGenerateContent"
+      ],
+      "rank": 39
+    },
+    "antigravity-preview-09-2026": {
+      "id": "antigravity-preview-09-2026",
+      "full_id": "models/antigravity-preview-09-2026",
+      "display_name": "Antigravity Agent Preview",
+      "family": "gemini",
+      "category": "agent",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Modèle d'agent autonome avancé pour la planification multi-tâches et l'orchestration de code.",
+        "en": "Advanced autonomous agent model designed for multi-step planning and code orchestration."
+      },
+      "tasks": [
+        "deep-research"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": null,
+        "output_per_1m": null
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens"
+      ],
+      "rank": 40
+    },
+    "antigravity-preview-05-2026": {
+      "id": "antigravity-preview-05-2026",
+      "full_id": "models/antigravity-preview-05-2026",
+      "display_name": "Antigravity Agent Preview",
+      "family": "gemini",
+      "category": "agent",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Preview du moteur agentique Antigravity pour l'exécution d'outils et de workflows autonomes.",
+        "en": "Preview of the Antigravity agentic engine for tool execution and autonomous workflows."
+      },
+      "tasks": [
+        "deep-research"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": null,
+        "output_per_1m": null
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens"
+      ],
+      "rank": 41
+    },
+    "deep-research-preview-04-2026": {
+      "id": "deep-research-preview-04-2026",
+      "full_id": "models/deep-research-preview-04-2026",
+      "display_name": "Deep Research Preview (Apr-21-2026)",
+      "family": "gemini",
+      "category": "research",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Agent de recherche web itérative et d'analyse documentaire multi-étapes.",
+        "en": "Iterative web research agent specialized in multi-step documentary analysis."
+      },
+      "tasks": [
+        "deep-research"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": null,
+        "output_per_1m": null
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens"
       ],
       "rank": 42
     },
@@ -2541,8 +2541,8 @@
         "default_temperature": 1.0
       },
       "pricing": {
-        "input_per_1m": 0.09,
-        "output_per_1m": 0.28
+        "input_per_1m": 0.0,
+        "output_per_1m": 0.0
       },
       "features": {
         "thinking": true,
@@ -2859,208 +2859,6 @@
       ],
       "rank": 54
     },
-    "gemini-2.5-flash-native-audio-preview-12-2025": {
-      "id": "gemini-2.5-flash-native-audio-preview-12-2025",
-      "full_id": "models/gemini-2.5-flash-native-audio-preview-12-2025",
-      "display_name": "Gemini 2.5 Flash Native Audio Preview 12-2025",
-      "family": "gemini",
-      "category": "live",
-      "tier": "legacy",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Version preview 12-2025 pour l'analyse et la compréhension audio native.",
-        "en": "Preview release 12-2025 for native audio comprehension and acoustic analysis."
-      },
-      "tasks": [
-        "realtime-multimodal"
-      ],
-      "modalities": {
-        "input": [
-          "audio",
-          "text",
-          "video"
-        ],
-        "output": [
-          "audio",
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 131072,
-        "max_output_tokens": 8192,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 0.5,
-        "output_per_1m": 2.0
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "countTokens",
-        "bidiGenerateContent"
-      ],
-      "rank": 55
-    },
-    "gemini-2.5-flash-native-audio-preview-09-2025": {
-      "id": "gemini-2.5-flash-native-audio-preview-09-2025",
-      "full_id": "models/gemini-2.5-flash-native-audio-preview-09-2025",
-      "display_name": "Gemini 2.5 Flash Native Audio Preview 09-2025",
-      "family": "gemini",
-      "category": "live",
-      "tier": "legacy",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Version preview 09-2025 pour l'analyse audio native.",
-        "en": "Preview release 09-2025 for native audio analysis and audio grounding."
-      },
-      "tasks": [
-        "realtime-multimodal"
-      ],
-      "modalities": {
-        "input": [
-          "audio",
-          "text",
-          "video"
-        ],
-        "output": [
-          "audio",
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 131072,
-        "max_output_tokens": 8192,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": null,
-        "output_per_1m": null
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "countTokens",
-        "bidiGenerateContent"
-      ],
-      "rank": 56
-    },
-    "gemini-2.5-flash-native-audio-latest": {
-      "id": "gemini-2.5-flash-native-audio-latest",
-      "full_id": "models/gemini-2.5-flash-native-audio-latest",
-      "display_name": "Gemini 2.5 Flash Native Audio Latest",
-      "family": "gemini",
-      "category": "live",
-      "tier": "legacy",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Pointeur vers le modèle stable de traitement audio natif sans conversion intermédiaire.",
-        "en": "Stable alias for native end-to-end audio processing without intermediate text conversion."
-      },
-      "tasks": [
-        "realtime-multimodal"
-      ],
-      "modalities": {
-        "input": [
-          "audio",
-          "text",
-          "video"
-        ],
-        "output": [
-          "audio",
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 131072,
-        "max_output_tokens": 8192,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 0.3,
-        "output_per_1m": 2.5
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "countTokens",
-        "bidiGenerateContent"
-      ],
-      "rank": 57
-    },
-    "gemini-2.5-pro-preview-tts": {
-      "id": "gemini-2.5-pro-preview-tts",
-      "full_id": "models/gemini-2.5-pro-preview-tts",
-      "display_name": "Gemini 2.5 Pro Preview TTS",
-      "family": "gemini",
-      "category": "tts",
-      "tier": "legacy",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Synthèse vocale haute fidélité avec contrôle nuancé des intonations et de l'accentuation.",
-        "en": "High-fidelity text-to-speech engine with nuanced control over intonation and cadence."
-      },
-      "tasks": [
-        "text-to-speech"
-      ],
-      "modalities": {
-        "input": [
-          "text"
-        ],
-        "output": [
-          "audio"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 8192,
-        "max_output_tokens": 16384,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 1.0,
-        "output_per_1m": 20.0
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": false,
-        "structured_outputs": false,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "countTokens",
-        "generateContent",
-        "batchGenerateContent"
-      ],
-      "rank": 58
-    },
     "gemini-2.5-pro": {
       "id": "gemini-2.5-pro",
       "full_id": "models/gemini-2.5-pro",
@@ -3112,138 +2910,141 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 59
+      "rank": 55
     },
-    "gemini-2.5-flash-preview-tts": {
-      "id": "gemini-2.5-flash-preview-tts",
-      "full_id": "models/gemini-2.5-flash-preview-tts",
-      "display_name": "Gemini 2.5 Flash Preview TTS",
+    "gemini-2.5-flash-native-audio-preview-12-2025": {
+      "id": "gemini-2.5-flash-native-audio-preview-12-2025",
+      "full_id": "models/gemini-2.5-flash-native-audio-preview-12-2025",
+      "display_name": "Gemini 2.5 Flash Native Audio Preview 12-2025",
       "family": "gemini",
-      "category": "tts",
+      "category": "live",
       "tier": "legacy",
       "is_recommended": false,
       "is_open_source": false,
       "description": {
-        "fr": "Synthèse vocale rapide et fluide pour les assistants vocaux et les réponses en temps réel.",
-        "en": "Fast and responsive speech synthesis for voice assistants and real-time replies."
+        "fr": "Version preview 12-2025 pour l'analyse et la compréhension audio native.",
+        "en": "Preview release 12-2025 for native audio comprehension and acoustic analysis."
       },
       "tasks": [
-        "text-to-speech"
+        "realtime-multimodal"
       ],
       "modalities": {
         "input": [
-          "text"
+          "audio",
+          "text",
+          "video"
         ],
         "output": [
-          "audio"
+          "audio",
+          "text"
         ],
         "supports_documents": false
       },
       "limits": {
-        "context_window": 8192,
-        "max_output_tokens": 16384,
+        "context_window": 131072,
+        "max_output_tokens": 8192,
         "default_temperature": 1.0
       },
       "pricing": {
         "input_per_1m": 0.5,
-        "output_per_1m": 10.0
-      },
-      "features": {
-        "thinking": false,
-        "function_calling": false,
-        "structured_outputs": false,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "countTokens",
-        "generateContent"
-      ],
-      "rank": 60
-    },
-    "gemini-2.5-flash-lite": {
-      "id": "gemini-2.5-flash-lite",
-      "full_id": "models/gemini-2.5-flash-lite",
-      "display_name": "Gemini 2.5 Flash-Lite",
-      "family": "gemini",
-      "category": "flash",
-      "tier": "legacy",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Variante allégée de génération 2.5 pour les opérations nécessitant une rapidité maximale.",
-        "en": "Streamlined generation 2.5 variant tailored for tasks requiring maximum throughput."
-      },
-      "tasks": [
-        "text-generation"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image",
-          "audio",
-          "video"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": true
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": 0.1,
-        "output_per_1m": 0.4
+        "output_per_1m": 2.0
       },
       "features": {
         "thinking": true,
         "function_calling": true,
         "structured_outputs": true,
         "system_instruction": true,
-        "caching": true,
+        "caching": false,
         "streaming": true
       },
       "supported_actions": [
-        "generateContent",
         "countTokens",
-        "createCachedContent",
-        "batchGenerateContent"
+        "bidiGenerateContent"
       ],
-      "rank": 61
+      "rank": 56
     },
-    "gemini-2.5-flash-image": {
-      "id": "gemini-2.5-flash-image",
-      "full_id": "models/gemini-2.5-flash-image",
-      "display_name": "Nano Banana",
+    "gemini-2.5-flash-native-audio-preview-09-2025": {
+      "id": "gemini-2.5-flash-native-audio-preview-09-2025",
+      "full_id": "models/gemini-2.5-flash-native-audio-preview-09-2025",
+      "display_name": "Gemini 2.5 Flash Native Audio Preview 09-2025",
       "family": "gemini",
-      "category": "image_gen",
+      "category": "live",
       "tier": "legacy",
       "is_recommended": false,
       "is_open_source": false,
       "description": {
-        "fr": "Génération d'images rapide de génération 2.5.",
-        "en": "Fast generation 2.5 text-to-image synthesis."
+        "fr": "Version preview 09-2025 pour l'analyse audio native.",
+        "en": "Preview release 09-2025 for native audio analysis and audio grounding."
       },
       "tasks": [
-        "text-to-image"
+        "realtime-multimodal"
       ],
       "modalities": {
         "input": [
+          "audio",
           "text",
-          "image"
+          "video"
         ],
         "output": [
-          "image"
+          "audio",
+          "text"
         ],
         "supports_documents": false
       },
       "limits": {
-        "context_window": 32768,
-        "max_output_tokens": 32768,
+        "context_window": 131072,
+        "max_output_tokens": 8192,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": null,
+        "output_per_1m": null
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "countTokens",
+        "bidiGenerateContent"
+      ],
+      "rank": 57
+    },
+    "gemini-2.5-flash-native-audio-latest": {
+      "id": "gemini-2.5-flash-native-audio-latest",
+      "full_id": "models/gemini-2.5-flash-native-audio-latest",
+      "display_name": "Gemini 2.5 Flash Native Audio Latest",
+      "family": "gemini",
+      "category": "live",
+      "tier": "legacy",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Pointeur vers le modèle stable de traitement audio natif sans conversion intermédiaire.",
+        "en": "Stable alias for native end-to-end audio processing without intermediate text conversion."
+      },
+      "tasks": [
+        "realtime-multimodal"
+      ],
+      "modalities": {
+        "input": [
+          "audio",
+          "text",
+          "video"
+        ],
+        "output": [
+          "audio",
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 131072,
+        "max_output_tokens": 8192,
         "default_temperature": 1.0
       },
       "pricing": {
@@ -3251,7 +3052,7 @@
         "output_per_1m": 2.5
       },
       "features": {
-        "thinking": false,
+        "thinking": true,
         "function_calling": true,
         "structured_outputs": true,
         "system_instruction": true,
@@ -3259,11 +3060,10 @@
         "streaming": true
       },
       "supported_actions": [
-        "generateContent",
         "countTokens",
-        "batchGenerateContent"
+        "bidiGenerateContent"
       ],
-      "rank": 62
+      "rank": 58
     },
     "gemini-2.5-flash": {
       "id": "gemini-2.5-flash",
@@ -3314,6 +3114,206 @@
         "generateContent",
         "countTokens",
         "createCachedContent",
+        "batchGenerateContent"
+      ],
+      "rank": 59
+    },
+    "gemini-2.5-flash-lite": {
+      "id": "gemini-2.5-flash-lite",
+      "full_id": "models/gemini-2.5-flash-lite",
+      "display_name": "Gemini 2.5 Flash-Lite",
+      "family": "gemini",
+      "category": "flash_lite",
+      "tier": "legacy",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Variante allégée de génération 2.5 pour les opérations nécessitant une rapidité maximale.",
+        "en": "Streamlined generation 2.5 variant tailored for tasks requiring maximum throughput."
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 0.1,
+        "output_per_1m": 0.4
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": true,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "createCachedContent",
+        "batchGenerateContent"
+      ],
+      "rank": 60
+    },
+    "gemini-2.5-pro-preview-tts": {
+      "id": "gemini-2.5-pro-preview-tts",
+      "full_id": "models/gemini-2.5-pro-preview-tts",
+      "display_name": "Gemini 2.5 Pro Preview TTS",
+      "family": "gemini",
+      "category": "tts",
+      "tier": "legacy",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Synthèse vocale haute fidélité avec contrôle nuancé des intonations et de l'accentuation.",
+        "en": "High-fidelity text-to-speech engine with nuanced control over intonation and cadence."
+      },
+      "tasks": [
+        "text-to-speech"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 8192,
+        "max_output_tokens": 16384,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 1.0,
+        "output_per_1m": 20.0
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": false,
+        "structured_outputs": false,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "countTokens",
+        "generateContent",
+        "batchGenerateContent"
+      ],
+      "rank": 61
+    },
+    "gemini-2.5-flash-preview-tts": {
+      "id": "gemini-2.5-flash-preview-tts",
+      "full_id": "models/gemini-2.5-flash-preview-tts",
+      "display_name": "Gemini 2.5 Flash Preview TTS",
+      "family": "gemini",
+      "category": "tts",
+      "tier": "legacy",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Synthèse vocale rapide et fluide pour les assistants vocaux et les réponses en temps réel.",
+        "en": "Fast and responsive speech synthesis for voice assistants and real-time replies."
+      },
+      "tasks": [
+        "text-to-speech"
+      ],
+      "modalities": {
+        "input": [
+          "text"
+        ],
+        "output": [
+          "audio"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 8192,
+        "max_output_tokens": 16384,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 0.5,
+        "output_per_1m": 10.0
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": false,
+        "structured_outputs": false,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "countTokens",
+        "generateContent"
+      ],
+      "rank": 62
+    },
+    "gemini-2.5-flash-image": {
+      "id": "gemini-2.5-flash-image",
+      "full_id": "models/gemini-2.5-flash-image",
+      "display_name": "Nano Banana",
+      "family": "gemini",
+      "category": "image_gen",
+      "tier": "legacy",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "fr": "Génération d'images rapide de génération 2.5.",
+        "en": "Fast generation 2.5 text-to-image synthesis."
+      },
+      "tasks": [
+        "text-to-image"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image"
+        ],
+        "output": [
+          "image"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 32768,
+        "max_output_tokens": 32768,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 0.3,
+        "output_per_1m": 2.5
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
         "batchGenerateContent"
       ],
       "rank": 63

@@ -106,7 +106,22 @@ DEFAULT_TASKS = [
 
 TASKS_MAP = {t["id"]: t["name"] for t in DEFAULT_TASKS}
 
+ELEMENT_CATEGORY_MAP = {
+    "hydrogen": "flash_lite",
+    "helium": "flash_lite",
+    "carbon": "flash",
+    "nitrogen": "flash",
+    "oxygen": "flash",
+    "neon": "pro",
+    "argon": "pro",
+    "krypton": "pro",
+    "xenon": "pro",
+}
+
 FEATURED_MODELS = {
+    "gemini-4-argon",
+    "gemini-4-carbon",
+    "gemini-4-hydrogen",
     "gemini-3.8-flash",
     "gemini-3.7-flash",
     "gemini-3.5-flash-lite",
@@ -240,24 +255,8 @@ def detect_modalities_and_task_hint(
 
 
 def infer_category(short_id: str) -> str:
-    """Déduit une catégorie pour le modèle."""
+    """Déduit une catégorie pour le modèle (supporte la nomenclature 3.x et la nomenclature chimique 4.x+)."""
     name_lower = short_id.lower()
-    if "flash" in name_lower and "lite" in name_lower:
-        return "flash_lite"
-    if "flash" in name_lower and "image" in name_lower:
-        return "image_gen"
-    if "flash" in name_lower:
-        return "flash"
-    if "pro" in name_lower and "image" in name_lower:
-        return "image_gen"
-    if "pro" in name_lower:
-        return "pro"
-    if "live" in name_lower:
-        return "live"
-    if "thinking" in name_lower:
-        return "thinking"
-    if "gemma" in name_lower:
-        return "open_source"
     if "veo" in name_lower:
         return "video_gen"
     if "lyria" in name_lower:
@@ -266,6 +265,8 @@ def infer_category(short_id: str) -> str:
         return "tts"
     if "transcribe" in name_lower:
         return "transcribe"
+    if "image" in name_lower or "imagen" in name_lower or "banana" in name_lower:
+        return "image_gen"
     if "deep-research" in name_lower or "research" in name_lower:
         return "research"
     if "antigravity" in name_lower:
@@ -274,6 +275,21 @@ def infer_category(short_id: str) -> str:
         return "robotics"
     if "embedding" in name_lower:
         return "embedding"
+    if "live" in name_lower or "native-audio" in name_lower:
+        return "live"
+    if "thinking" in name_lower:
+        return "thinking"
+    if "gemma" in name_lower:
+        return "open_source"
+    for element_name, mapped_cat in ELEMENT_CATEGORY_MAP.items():
+        if re.search(rf"\b{element_name}\b", name_lower):
+            return mapped_cat
+    if "flash" in name_lower and "lite" in name_lower:
+        return "flash_lite"
+    if "flash" in name_lower:
+        return "flash"
+    if "pro" in name_lower:
+        return "pro"
     return "general"
 
 
@@ -281,6 +297,8 @@ def infer_tier(short_id: str) -> str:
     """Déduit le tier (featured, standard, preview, specialized, legacy)."""
     name_lower = short_id.lower()
     if short_id in FEATURED_MODELS:
+        return "featured"
+    if any(re.search(rf"\b{el}\b", name_lower) for el in ELEMENT_CATEGORY_MAP) and "preview" not in name_lower:
         return "featured"
     if (
         any(x in name_lower for x in ["customtools", "computer-use", "robotics"])
@@ -302,7 +320,7 @@ def score_model_for_ranking(model_card: dict):
 
     # 1. Poids du Tier (Featured en premier !)
     tier = model_card.get("tier", "standard")
-    if model_card["id"] in FEATURED_MODELS:
+    if model_card["id"] in FEATURED_MODELS or infer_tier(model_card["id"]) == "featured":
         tier = "featured"
     tier_weights = {
         "featured": 5,
@@ -329,14 +347,32 @@ def score_model_for_ranking(model_card: dict):
         date_score = year + (month / 12.0)
         model_id_no_date = model_id.replace(date_match.group(0), "")
 
-    # 4. Numéro de version (3.8 > 3.7 > 3.5 > 3.1 > 3.0 > 2.5)
+    # 4. Numéro de version (4 > 3.8 > 3.7 > 3.5 > 3.1 > 3.0 > 2.5)
     version_match = re.search(r"(\d+(?:\.\d+)?)", model_id_no_date)
     version = float(version_match.group(1)) if version_match else 1.0
 
-    # 5. Alias '-latest'
+    # 5. Sous-gamme (Argon/Pro > Carbon/Flash > Hydrogen/Flash-Lite)
+    cat = model_card.get("category") or infer_category(model_card["id"])
+    sub_tier_weights = {
+        "pro": 4,
+        "flash": 3,
+        "flash_lite": 2,
+        "live": 3,
+    }
+    sub_tier_score = sub_tier_weights.get(cat, 1)
+
+    # 6. Alias '-latest'
     is_latest = 1 if "-latest" in model_id else 0
 
-    return (tier_weight, family_score, version, date_score, is_latest, model_card["id"])
+    return (
+        tier_weight,
+        family_score,
+        version,
+        sub_tier_score,
+        date_score,
+        is_latest,
+        model_card["id"],
+    )
 
 
 def load_existing_registry(json_path: Path):
@@ -633,12 +669,25 @@ def build_v2_model_card(
         tasks = existing_card.get("tasks", [sugg_task])
         if not tasks:
             tasks = [sugg_task]
-        category = existing_card.get("category", infer_category(short_id))
+        inferred_cat = infer_category(short_id)
+        existing_cat = existing_card.get("category")
+        if (
+            not existing_cat
+            or existing_cat == "general"
+            or (
+                existing_cat in ("flash", "flash_lite", "pro")
+                and inferred_cat in ("flash_lite", "tts", "image_gen")
+            )
+        ):
+            category = inferred_cat
+        else:
+            category = existing_cat
 
-        if short_id in FEATURED_MODELS:
+        inferred_t = infer_tier(short_id)
+        if short_id in FEATURED_MODELS or inferred_t == "featured":
             tier = "featured"
         else:
-            tier = existing_card.get("tier", infer_tier(short_id))
+            tier = existing_card.get("tier", inferred_t)
 
         is_open_source = existing_card.get(
             "is_open_source", "gemma" in short_id.lower()
@@ -760,6 +809,19 @@ def main():
         for m_id, m_data in existing_models.items():
             if m_id.startswith("models/"):
                 continue
+            inferred_cat = infer_category(m_id)
+            existing_cat = m_data.get("category")
+            if (
+                not existing_cat
+                or existing_cat == "general"
+                or (
+                    existing_cat in ("flash", "flash_lite", "pro")
+                    and inferred_cat in ("flash_lite", "tts", "image_gen")
+                )
+            ):
+                m_data["category"] = inferred_cat
+            if m_id in FEATURED_MODELS or infer_tier(m_id) == "featured":
+                m_data["tier"] = "featured"
             m_data["pricing"] = resolve_model_pricing(m_id, pricing_map, m_data)
             processed_models[m_id] = m_data
 
@@ -772,20 +834,56 @@ def main():
         processed_models.values(), key=score_model_for_ranking, reverse=True
     )
 
-    # Attribuer les rangs globaux et déterminer les recommandations par tâche
-    task_leaders = {}
+    # Attribuer les rangs globaux et déterminer les recommandations par tâche & sous-catégorie
+    task_leaders: dict[str, set[str]] = {}
+    seen_text_gen_cats: set[str] = set()
     for rank, card in enumerate(sorted_cards, 1):
         card["rank"] = rank
         primary_task = card["tasks"][0] if card["tasks"] else "text-generation"
-        if primary_task not in task_leaders and card.get("tier") in (
-            "featured",
-            "standard",
-        ):
-            task_leaders[primary_task] = card["id"]
+        if card.get("tier") not in ("featured", "standard"):
+            continue
+        if primary_task == "text-generation":
+            cat = card.get("category", "general")
+            # Recommend the leader of each core text-generation tier (pro/Argon, flash/Carbon, flash_lite/Hydrogen)
+            # as well as any model explicitly using the latest chemical element nomenclature
+            is_element_model = any(
+                re.search(rf"\b{el}\b", card["id"].lower())
+                for el in ELEMENT_CATEGORY_MAP
+            )
+            if is_element_model or (
+                cat in ("pro", "flash", "flash_lite") and cat not in seen_text_gen_cats
+            ):
+                seen_text_gen_cats.add(cat)
+                task_leaders.setdefault(primary_task, set()).add(card["id"])
+        else:
+            if primary_task not in task_leaders:
+                task_leaders[primary_task] = {card["id"]}
 
     for card in sorted_cards:
         primary_task = card["tasks"][0] if card["tasks"] else "text-generation"
-        card["is_recommended"] = task_leaders.get(primary_task) == card["id"]
+        card["is_recommended"] = card["id"] in task_leaders.get(primary_task, set())
+
+    # Mise à jour dynamique des quick_picks text-generation
+    text_gen_picks = []
+    role_by_cat = {
+        "pro": ("pro", "Flagship / Reasoning"),
+        "flash": ("balanced", "Balanced"),
+        "flash_lite": ("fast", "Fast & Lite"),
+        "open_source": ("open_source", "Open Source"),
+    }
+    picked_cats: set[str] = set()
+    for card in sorted_cards:
+        if "text-generation" not in card.get("tasks", []):
+            continue
+        cat = card.get("category", "")
+        if cat in role_by_cat and cat not in picked_cats:
+            picked_cats.add(cat)
+            role_name, badge_label = role_by_cat[cat]
+            text_gen_picks.append(
+                {"id": card["id"], "role": role_name, "badge": badge_label}
+            )
+    if text_gen_picks:
+        quick_picks["text-generation"] = text_gen_picks
 
     # 4. Calcul dynamique du résumé des tâches (sans duplication de modèles)
     tasks_summary = {}
