@@ -2,11 +2,11 @@
   "schema_version": "2.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-11-17T19:18:16.440651",
-  "total_models": 64,
+  "updated_at": "2026-11-19T19:18:25.340224",
+  "total_models": 66,
   "tasks_summary": {
-    "text-generation": 24,
-    "realtime-multimodal": 8,
+    "text-generation": 25,
+    "realtime-multimodal": 9,
     "text-to-speech": 5,
     "text-to-image": 8,
     "text-to-music": 4,
@@ -19,7 +19,7 @@
   "quick_picks": {
     "text-generation": [
       {
-        "id": "gemini-4-argon",
+        "id": "gemini-4-neon",
         "role": "pro",
         "badge": "Flagship / Reasoning"
       },
@@ -134,6 +134,57 @@
     ]
   },
   "models": {
+    "gemini-4-neon": {
+      "id": "gemini-4-neon",
+      "full_id": "models/gemini-4-neon",
+      "display_name": "Gemini 4 Neon",
+      "family": "gemini",
+      "category": "pro",
+      "tier": "featured",
+      "is_recommended": true,
+      "is_open_source": false,
+      "description": {
+        "en": "Gemini 4 Neon"
+      },
+      "tasks": [
+        "text-generation"
+      ],
+      "modalities": {
+        "input": [
+          "text",
+          "image",
+          "audio",
+          "video"
+        ],
+        "output": [
+          "text"
+        ],
+        "supports_documents": true
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": 3.0,
+        "output_per_1m": 15.0
+      },
+      "features": {
+        "thinking": true,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "generateContent",
+        "countTokens",
+        "batchGenerateContent"
+      ],
+      "rank": 1
+    },
     "gemini-4-argon": {
       "id": "gemini-4-argon",
       "full_id": "models/gemini-4-argon",
@@ -183,7 +234,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 1
+      "rank": 2
     },
     "gemini-4-carbon": {
       "id": "gemini-4-carbon",
@@ -234,7 +285,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 2
+      "rank": 3
     },
     "gemini-4-hydrogen": {
       "id": "gemini-4-hydrogen",
@@ -285,7 +336,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 3
+      "rank": 4
     },
     "gemini-3.8-live": {
       "id": "gemini-3.8-live",
@@ -335,7 +386,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 4
+      "rank": 5
     },
     "gemini-3.8-flash": {
       "id": "gemini-3.8-flash",
@@ -388,7 +439,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 5
+      "rank": 6
     },
     "gemini-3.7-flash": {
       "id": "gemini-3.7-flash",
@@ -441,7 +492,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 6
+      "rank": 7
     },
     "gemini-3.5-flash-lite": {
       "id": "gemini-3.5-flash-lite",
@@ -494,7 +545,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 7
+      "rank": 8
     },
     "gemini-3.1-pro-preview": {
       "id": "gemini-3.1-pro-preview",
@@ -547,7 +598,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 8
+      "rank": 9
     },
     "gemini-3.1-flash-tts-preview": {
       "id": "gemini-3.1-flash-tts-preview",
@@ -596,7 +647,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 9
+      "rank": 10
     },
     "gemini-3.1-flash-image": {
       "id": "gemini-3.1-flash-image",
@@ -646,7 +697,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 10
+      "rank": 11
     },
     "lyria-3-pro-preview": {
       "id": "lyria-3-pro-preview",
@@ -695,7 +746,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 11
+      "rank": 12
     },
     "gemini-robotics-er-2-streaming-preview": {
       "id": "gemini-robotics-er-2-streaming-preview",
@@ -745,7 +796,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 12
+      "rank": 13
     },
     "deep-research-max-preview-04-2026": {
       "id": "deep-research-max-preview-04-2026",
@@ -794,7 +845,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 13
+      "rank": 14
     },
     "gemma-4-31b-it": {
       "id": "gemma-4-31b-it",
@@ -842,7 +893,56 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 14
+      "rank": 15
+    },
+    "genie-4": {
+      "id": "genie-4",
+      "full_id": "models/genie-4",
+      "display_name": "Genie 4",
+      "family": "gemini",
+      "category": "general",
+      "tier": "standard",
+      "is_recommended": false,
+      "is_open_source": false,
+      "description": {
+        "en": "Real-time audio-video generation model"
+      },
+      "tasks": [
+        "realtime-multimodal"
+      ],
+      "modalities": {
+        "input": [
+          "audio",
+          "text",
+          "video"
+        ],
+        "output": [
+          "audio",
+          "text"
+        ],
+        "supports_documents": false
+      },
+      "limits": {
+        "context_window": 1048576,
+        "max_output_tokens": 65536,
+        "default_temperature": 1.0
+      },
+      "pricing": {
+        "input_per_1m": null,
+        "output_per_1m": null
+      },
+      "features": {
+        "thinking": false,
+        "function_calling": true,
+        "structured_outputs": true,
+        "system_instruction": true,
+        "caching": false,
+        "streaming": true
+      },
+      "supported_actions": [
+        "bidiGenerateContent"
+      ],
+      "rank": 16
     },
     "gemini-3.8-live-extended-thinking": {
       "id": "gemini-3.8-live-extended-thinking",
@@ -892,7 +992,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 15
+      "rank": 17
     },
     "gemini-3.8-flash-tts": {
       "id": "gemini-3.8-flash-tts",
@@ -940,7 +1040,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 16
+      "rank": 18
     },
     "gemini-3.8-flash-lite-tts": {
       "id": "gemini-3.8-flash-lite-tts",
@@ -988,7 +1088,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 17
+      "rank": 19
     },
     "gemini-3.6-flash": {
       "id": "gemini-3.6-flash",
@@ -1041,7 +1141,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 18
+      "rank": 20
     },
     "gemini-3.5-flash": {
       "id": "gemini-3.5-flash",
@@ -1094,7 +1194,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 19
+      "rank": 21
     },
     "lyria-3.5": {
       "id": "lyria-3.5",
@@ -1143,7 +1243,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 20
+      "rank": 22
     },
     "gemini-3.5-transcribe-live": {
       "id": "gemini-3.5-transcribe-live",
@@ -1193,7 +1293,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 21
+      "rank": 23
     },
     "gemini-3.5-transcribe": {
       "id": "gemini-3.5-transcribe",
@@ -1241,7 +1341,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 22
+      "rank": 24
     },
     "gemini-3.5-live-translate-preview": {
       "id": "gemini-3.5-live-translate-preview",
@@ -1291,7 +1391,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 23
+      "rank": 25
     },
     "gemini-3.1-flash-live-preview": {
       "id": "gemini-3.1-flash-live-preview",
@@ -1341,7 +1441,7 @@
       "supported_actions": [
         "bidiGenerateContent"
       ],
-      "rank": 24
+      "rank": 26
     },
     "gemini-3.1-flash-lite-preview": {
       "id": "gemini-3.1-flash-lite-preview",
@@ -1394,7 +1494,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 25
+      "rank": 27
     },
     "gemini-3.1-flash-lite": {
       "id": "gemini-3.1-flash-lite",
@@ -1447,7 +1547,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 26
+      "rank": 28
     },
     "gemini-3.1-flash-lite-image": {
       "id": "gemini-3.1-flash-lite-image",
@@ -1497,7 +1597,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 27
+      "rank": 29
     },
     "gemini-3.1-flash-image-preview": {
       "id": "gemini-3.1-flash-image-preview",
@@ -1547,7 +1647,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 28
+      "rank": 30
     },
     "lyria-3-clip-preview": {
       "id": "lyria-3-clip-preview",
@@ -1596,7 +1696,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 29
+      "rank": 31
     },
     "gemini-3-pro-image-preview": {
       "id": "gemini-3-pro-image-preview",
@@ -1646,7 +1746,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 30
+      "rank": 32
     },
     "gemini-3-pro-image": {
       "id": "gemini-3-pro-image",
@@ -1696,7 +1796,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 31
+      "rank": 33
     },
     "gemini-nano-banana-2.1": {
       "id": "gemini-nano-banana-2.1",
@@ -1745,7 +1845,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 32
+      "rank": 34
     },
     "gemini-embedding-2-preview": {
       "id": "gemini-embedding-2-preview",
@@ -1798,7 +1898,7 @@
         "countTokens",
         "asyncBatchEmbedContent"
       ],
-      "rank": 33
+      "rank": 35
     },
     "gemini-embedding-2": {
       "id": "gemini-embedding-2",
@@ -1851,7 +1951,7 @@
         "countTokens",
         "asyncBatchEmbedContent"
       ],
-      "rank": 34
+      "rank": 36
     },
     "gemini-omni-1.2-flash": {
       "id": "gemini-omni-1.2-flash",
@@ -1901,7 +2001,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 35
+      "rank": 37
     },
     "gemini-omni-1.1-flash": {
       "id": "gemini-omni-1.1-flash",
@@ -1953,7 +2053,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 36
+      "rank": 38
     },
     "gemini-pro-latest": {
       "id": "gemini-pro-latest",
@@ -2006,7 +2106,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 37
+      "rank": 39
     },
     "gemini-flash-latest": {
       "id": "gemini-flash-latest",
@@ -2059,7 +2159,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 38
+      "rank": 40
     },
     "gemini-flash-lite-latest": {
       "id": "gemini-flash-lite-latest",
@@ -2112,7 +2212,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 39
+      "rank": 41
     },
     "antigravity-preview-09-2026": {
       "id": "antigravity-preview-09-2026",
@@ -2161,7 +2261,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 40
+      "rank": 42
     },
     "antigravity-preview-05-2026": {
       "id": "antigravity-preview-05-2026",
@@ -2210,7 +2310,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 41
+      "rank": 43
     },
     "deep-research-preview-04-2026": {
       "id": "deep-research-preview-04-2026",
@@ -2259,7 +2359,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 42
+      "rank": 44
     },
     "nano-banana-pro-preview": {
       "id": "nano-banana-pro-preview",
@@ -2309,7 +2409,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 43
+      "rank": 45
     },
     "lyria-realtime-exp": {
       "id": "lyria-realtime-exp",
@@ -2357,7 +2457,7 @@
       "supported_actions": [
         "bidiGenerateMusic"
       ],
-      "rank": 44
+      "rank": 46
     },
     "gemini-omni-flash-preview": {
       "id": "gemini-omni-flash-preview",
@@ -2409,7 +2509,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 45
+      "rank": 47
     },
     "gemini-embedding-001": {
       "id": "gemini-embedding-001",
@@ -2459,7 +2559,7 @@
         "countTokens",
         "asyncBatchEmbedContent"
       ],
-      "rank": 46
+      "rank": 48
     },
     "gemini-decision-1": {
       "id": "gemini-decision-1",
@@ -2508,7 +2608,7 @@
       "supported_actions": [
         "createDecision"
       ],
-      "rank": 47
+      "rank": 49
     },
     "gemma-4-26b-a4b-it": {
       "id": "gemma-4-26b-a4b-it",
@@ -2556,7 +2656,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 48
+      "rank": 50
     },
     "antigravity-preview-latest": {
       "id": "antigravity-preview-latest",
@@ -2604,7 +2704,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 49
+      "rank": 51
     },
     "gemini-3.1-pro-preview-customtools": {
       "id": "gemini-3.1-pro-preview-customtools",
@@ -2657,7 +2757,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 50
+      "rank": 52
     },
     "gemini-2.5-computer-use-preview-10-2025": {
       "id": "gemini-2.5-computer-use-preview-10-2025",
@@ -2706,7 +2806,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 51
+      "rank": 53
     },
     "gemini-robotics-er-2-preview": {
       "id": "gemini-robotics-er-2-preview",
@@ -2757,7 +2857,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 52
+      "rank": 54
     },
     "aqa": {
       "id": "aqa",
@@ -2804,7 +2904,7 @@
       "supported_actions": [
         "generateAnswer"
       ],
-      "rank": 53
+      "rank": 55
     },
     "gemini-3-flash-preview": {
       "id": "gemini-3-flash-preview",
@@ -2857,7 +2957,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 54
+      "rank": 56
     },
     "gemini-2.5-pro": {
       "id": "gemini-2.5-pro",
@@ -2910,7 +3010,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 55
+      "rank": 57
     },
     "gemini-2.5-flash-native-audio-preview-12-2025": {
       "id": "gemini-2.5-flash-native-audio-preview-12-2025",
@@ -2961,7 +3061,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 56
+      "rank": 58
     },
     "gemini-2.5-flash-native-audio-preview-09-2025": {
       "id": "gemini-2.5-flash-native-audio-preview-09-2025",
@@ -3012,7 +3112,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 57
+      "rank": 59
     },
     "gemini-2.5-flash-native-audio-latest": {
       "id": "gemini-2.5-flash-native-audio-latest",
@@ -3063,7 +3163,7 @@
         "countTokens",
         "bidiGenerateContent"
       ],
-      "rank": 58
+      "rank": 60
     },
     "gemini-2.5-flash": {
       "id": "gemini-2.5-flash",
@@ -3116,7 +3216,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 59
+      "rank": 61
     },
     "gemini-2.5-flash-lite": {
       "id": "gemini-2.5-flash-lite",
@@ -3169,7 +3269,7 @@
         "createCachedContent",
         "batchGenerateContent"
       ],
-      "rank": 60
+      "rank": 62
     },
     "gemini-2.5-pro-preview-tts": {
       "id": "gemini-2.5-pro-preview-tts",
@@ -3218,7 +3318,7 @@
         "generateContent",
         "batchGenerateContent"
       ],
-      "rank": 61
+      "rank": 63
     },
     "gemini-2.5-flash-preview-tts": {
       "id": "gemini-2.5-flash-preview-tts",
@@ -3266,7 +3366,7 @@
         "countTokens",
         "generateContent"
       ],
-      "rank": 62
+      "rank": 64
     },
     "gemini-2.5-flash-image": {
       "id": "gemini-2.5-flash-image",
@@ -3316,7 +3416,7 @@
         "countTokens",
         "batchGenerateContent"
       ],
-      "rank": 63
+      "rank": 65
     },
     "deep-research-pro-preview-12-2025": {
       "id": "deep-research-pro-preview-12-2025",
@@ -3365,7 +3465,7 @@
         "generateContent",
         "countTokens"
       ],
-      "rank": 64
+      "rank": 66
     }
   }
 }
