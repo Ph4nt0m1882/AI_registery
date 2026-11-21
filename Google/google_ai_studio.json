@@ -2,8 +2,8 @@
   "schema_version": "2.0.0",
   "provider": "google_ai_studio",
   "name": "Google AI Studio (Gemini)",
-  "updated_at": "2026-11-20T19:18:29.979596",
-  "total_models": 66,
+  "updated_at": "2026-11-21T19:18:34.795574",
+  "total_models": 65,
   "tasks_summary": {
     "text-generation": 25,
     "realtime-multimodal": 9,
@@ -11,7 +11,7 @@
     "text-to-image": 8,
     "text-to-music": 4,
     "robotics": 2,
-    "deep-research": 7,
+    "deep-research": 6,
     "speech-to-text": 1,
     "embeddings": 3,
     "text-to-video": 2
@@ -3417,55 +3417,6 @@
         "batchGenerateContent"
       ],
       "rank": 65
-    },
-    "deep-research-pro-preview-12-2025": {
-      "id": "deep-research-pro-preview-12-2025",
-      "full_id": "models/deep-research-pro-preview-12-2025",
-      "display_name": "Deep Research Pro Preview (Dec-12-2025) [Rerouted]",
-      "family": "gemini",
-      "category": "research",
-      "tier": "legacy",
-      "is_recommended": false,
-      "is_open_source": false,
-      "description": {
-        "fr": "Version Pro de recherche documentaire et d'agrégation d'informations synthétiques.",
-        "en": "Pro edition for documentary research and structured information synthesis."
-      },
-      "tasks": [
-        "deep-research"
-      ],
-      "modalities": {
-        "input": [
-          "text",
-          "image"
-        ],
-        "output": [
-          "text"
-        ],
-        "supports_documents": false
-      },
-      "limits": {
-        "context_window": 1048576,
-        "max_output_tokens": 65536,
-        "default_temperature": 1.0
-      },
-      "pricing": {
-        "input_per_1m": null,
-        "output_per_1m": null
-      },
-      "features": {
-        "thinking": true,
-        "function_calling": true,
-        "structured_outputs": true,
-        "system_instruction": true,
-        "caching": false,
-        "streaming": true
-      },
-      "supported_actions": [
-        "generateContent",
-        "countTokens"
-      ],
-      "rank": 66
     }
   }
 }
